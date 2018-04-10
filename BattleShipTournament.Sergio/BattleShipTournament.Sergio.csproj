@@ -41,7 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdmiralSergio.cs" />
+    <Compile Include="Mappa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ship.cs" />
+    <Compile Include="Posizionamento.cs" />
+    <Compile Include="Sparo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BattleShipTournament.Core\BattleShipTournament.Core.csproj">

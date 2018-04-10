@@ -15,7 +15,7 @@ namespace BattleShipTournament.Sergio
         {
 
         }
-
+       
         public event Action<IAdmiral> FlottaAffondata;
 
         public void PosizionaFlotta()
