@@ -1,4 +1,5 @@
 ﻿using BattleshipTournament.Core.Models;
+using BattleShipTournament.Walter.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,22 +43,6 @@ namespace BattleShipTournament.Walter
         public Coordinate Spara()
         {
             throw new NotImplementedException();
-        }
-    }
-
-    internal class Nave
-    {
-        private List<Coordinate> posizioni;
-        private int lunghezza;
-
-        public Nave(int lunghezza)
-        {
-            this.lunghezza = lunghezza;
-        }
-
-        public void posizionaNave()
-        {
-
         }
     }
 }
