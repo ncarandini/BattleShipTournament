@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Core",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Mirko", "BattleShipTournament.Mirko\BattleShipTournament.Mirko.csproj", "{396BB296-BC60-42D9-91CF-D43B8B0B36A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Gianpaolo", "..\BattleShipTournament\BattleShipTournament.Gianpaolo\BattleShipTournament.Gianpaolo.csproj", "{A85B6075-6E3B-4C06-B9C7-73B6736974E3}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Emanuel", "BattleShipTournament.Emanuel\BattleShipTournament.Emanuel.csproj", "{4C74CDF9-DFE5-475E-B22B-A4E790B6E70F}"
 EndProject
 Global
