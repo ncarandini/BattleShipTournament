@@ -13,8 +13,24 @@ namespace BattleShipTournament.Walter
 
         public event Action<IAdmiral> FlottaAffondata;
 
+        private List<Nave> laMiaFlotta;
+        private IAdmiral enemyAdmiral;
+
+        public AdmiralWalter(IAdmiral enemyAdmiral)
+        {
+            //creo le mie navi
+            laMiaFlotta = new List<Nave>();
+            for (int i = 1; i <= 5; i++)
+                laMiaFlotta.Add(new Nave(i));
+            //creo il mio campo di battaglia
+            //creo il campo di battaglia nemico
+            //setto l'ammiraglio avversario
+            this.enemyAdmiral = enemyAdmiral;
+        }
+
         public void PosizionaFlotta()
         {
+            //setto il mio campo di battaglia
             throw new NotImplementedException();
         }
 
@@ -26,6 +42,22 @@ namespace BattleShipTournament.Walter
         public Coordinate Spara()
         {
             throw new NotImplementedException();
+        }
+    }
+
+    internal class Nave
+    {
+        private List<Coordinate> posizioni;
+        private int lunghezza;
+
+        public Nave(int lunghezza)
+        {
+            this.lunghezza = lunghezza;
+        }
+
+        public void posizionaNave()
+        {
+
         }
     }
 }
