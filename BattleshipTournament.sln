@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Niko",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Mirko", "BattleShipTournament.Mirko\BattleShipTournament.Mirko.csproj", "{396BB296-BC60-42D9-91CF-D43B8B0B36A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Gianpaolo", "BattleShipTournament.Gianpaolo\BattleShipTournament.Gianpaolo.csproj", "{A85B6075-6E3B-4C06-B9C7-73B6736974E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Gianpaolo", "BattleShipTournament.Gianpaolo\BattleShipTournament.Gianpaolo.csproj", "{76FD1BCB-BA01-4B71-9E07-F3CC4E8D1F9A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Emanuel", "BattleShipTournament.Emanuel\BattleShipTournament.Emanuel.csproj", "{4C74CDF9-DFE5-475E-B22B-A4E790B6E70F}"
 EndProject
@@ -49,6 +49,10 @@ Global
 		{396BB296-BC60-42D9-91CF-D43B8B0B36A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{396BB296-BC60-42D9-91CF-D43B8B0B36A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{396BB296-BC60-42D9-91CF-D43B8B0B36A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76FD1BCB-BA01-4B71-9E07-F3CC4E8D1F9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76FD1BCB-BA01-4B71-9E07-F3CC4E8D1F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76FD1BCB-BA01-4B71-9E07-F3CC4E8D1F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76FD1BCB-BA01-4B71-9E07-F3CC4E8D1F9A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4C74CDF9-DFE5-475E-B22B-A4E790B6E70F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4C74CDF9-DFE5-475E-B22B-A4E790B6E70F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C74CDF9-DFE5-475E-B22B-A4E790B6E70F}.Release|Any CPU.ActiveCfg = Release|Any CPU
