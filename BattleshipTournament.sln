@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Core",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Mirko", "BattleShipTournament.Mirko\BattleShipTournament.Mirko.csproj", "{396BB296-BC60-42D9-91CF-D43B8B0B36A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Irvin", "BattleShipTournament.Irvin\BattleShipTournament.Irvin.csproj", "{ED83A802-766F-4455-AF77-35AB0BD2F050}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Gianpaolo", "..\BattleShipTournament\BattleShipTournament.Gianpaolo\BattleShipTournament.Gianpaolo.csproj", "{A85B6075-6E3B-4C06-B9C7-73B6736974E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
