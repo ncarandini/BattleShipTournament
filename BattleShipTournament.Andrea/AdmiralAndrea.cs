@@ -5,22 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Nick
+namespace BattleShipTournament.Andrea
 {
-    public class AdmiralNick : IAdmiral
+    public class AdmiralAndrea : IAdmiral
     {
+        public string Nome => "Andrea";
+
         public event Action<IAdmiral> FlottaAffondata;
 
-        public string Nome => "Nick";
-
-        public AdmiralNick(string nome)
+        public AdmiralAndrea()
         {
-            
+
         }
 
         public void PosizionaFlotta()
         {
-            throw new NotImplementedException();
+
         }
 
         public EffettoSparo Rapporto()

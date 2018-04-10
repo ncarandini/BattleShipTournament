@@ -5,17 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Nick
+namespace BattleShipTournament.Niko
 {
-    public class AdmiralNick : IAdmiral
+    public class AdmiralNiko : IAdmiral
     {
+        public string Nome => "Niko";
+
         public event Action<IAdmiral> FlottaAffondata;
 
-        public string Nome => "Nick";
-
-        public AdmiralNick(string nome)
+        public AdmiralNiko()
         {
-            
+
         }
 
         public void PosizionaFlotta()
