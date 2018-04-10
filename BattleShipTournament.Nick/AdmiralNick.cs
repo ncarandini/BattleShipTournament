@@ -11,12 +11,11 @@ namespace BattleShipTournament.Nick
     {
         public event Action<IAdmiral> FlottaAffondata;
 
-        readonly string nome;
-        public string Nome { get { return nome; } }
+        public string Nome => "Nick";
 
         public AdmiralNick(string nome)
         {
-            this.nome = nome;
+            
         }
 
         public void PosizionaFlotta()
