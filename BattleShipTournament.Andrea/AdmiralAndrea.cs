@@ -13,6 +13,8 @@ namespace BattleShipTournament.Andrea
 
         public event Action<IAdmiral> FlottaAffondata;
 
+
+
         public AdmiralAndrea()
         {
 
