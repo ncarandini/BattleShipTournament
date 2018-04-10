@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27604.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleshipTournament.ConsoleApp", "BattleshipTournament.ConsoleApp\BattleshipTournament.ConsoleApp.csproj", "{42BD7D3E-0420-401F-9C10-A17F0A4ECBF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Nick", "BattleShipTournament.Nick\BattleShipTournament.Nick.csproj", "{6D99EC70-854B-463F-8015-8F3B44CFA586}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShipTournament.Core", "BattleShipTournament.Core\BattleShipTournament.Core.csproj", "{35AF04F3-A680-4CCB-ABCF-9B4F19D6B8EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{42BD7D3E-0420-401F-9C10-A17F0A4ECBF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42BD7D3E-0420-401F-9C10-A17F0A4ECBF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42BD7D3E-0420-401F-9C10-A17F0A4ECBF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D99EC70-854B-463F-8015-8F3B44CFA586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D99EC70-854B-463F-8015-8F3B44CFA586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D99EC70-854B-463F-8015-8F3B44CFA586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D99EC70-854B-463F-8015-8F3B44CFA586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35AF04F3-A680-4CCB-ABCF-9B4F19D6B8EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35AF04F3-A680-4CCB-ABCF-9B4F19D6B8EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35AF04F3-A680-4CCB-ABCF-9B4F19D6B8EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35AF04F3-A680-4CCB-ABCF-9B4F19D6B8EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
