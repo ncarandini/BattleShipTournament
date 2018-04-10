@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E452CFE8-6AD8-4822-9F6C-FC1999C54DF0}</ProjectGuid>
+    <ProjectGuid>{6B26D751-1CF4-4AE5-A41C-667E26DEED29}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BattleShipTournament.Walter</RootNamespace>
