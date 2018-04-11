@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BattleShipTournament.Sergio
 {
-    class Posizionamento
+    public struct Placement
     {
+        public int X { get; set; }
+        public int Y { get; set; }
     }
 }

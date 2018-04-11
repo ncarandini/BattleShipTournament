@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleShipTournament.Sergio
 {
-    class Sparo
+    class Shot
     {
     }
 }
