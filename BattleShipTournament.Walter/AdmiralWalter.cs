@@ -16,6 +16,7 @@ namespace BattleShipTournament.Walter
 
         private List<Nave> laMiaFlotta;
         private List<Coordinate> posizioniOccupate;
+        private List<Coordinate> campoNemico;
         
 
         public AdmiralWalter()
@@ -34,8 +35,8 @@ namespace BattleShipTournament.Walter
 
             //creo il mio campo di battaglia
             posizioniOccupate= new List<Coordinate>();
+
             //creo il campo di battaglia nemico
-            //setto l'ammiraglio avversario
            
         }
 
@@ -72,16 +73,40 @@ namespace BattleShipTournament.Walter
             }
         }
 
-        //private void posizionaNave()
 
         public EffettoSparo Rapporto()
         {
-            throw new NotImplementedException();
+            EffettoSparo effettoSparo= EffettoSparo.Acqua;
+            foreach(Nave n in laMiaFlotta)
+            {
+               // effettoSparo = n.ControlloDanni();
+                if (effettoSparo.Equals(EffettoSparo.Acqua))
+                    continue;
+                else
+                    break;
+            }
+            return effettoSparo;
         }
 
         public Coordinate Spara()
         {
-            throw new NotImplementedException();
+            Random rand = new Random();
+            Coordinate sparo;
+
+            while(true)
+            {
+                int riga = rand.Next(0, 10);
+                int colonna = rand.Next(0, 10);
+                sparo = new Coordinate(riga, colonna);
+                //se non ho già provato a sparare in questa posizione
+                if(!campoNemico.Contains(sparo))
+                {
+                    campoNemico.Add(sparo);
+                    break;
+                }
+            }
+
+            return sparo;
         }
     }
 }
