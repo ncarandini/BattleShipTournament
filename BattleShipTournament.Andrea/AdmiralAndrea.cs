@@ -41,17 +41,18 @@ namespace BattleShipTournament.Andrea
 
             PosizionaFlotta(); //?? da inserire nel costruttore o no??
             
+
             
 
 
         }
 
-        public void PosizionaFlotta()
+        public void PosizionaFlotta()  // posizionamento random della flotta.
         {
             //prova di inserimento coordinata in una partenave
-            flotta[1].GetParteNave(0).SetCoordinata(1, 2);
+            //flotta[1].GetParteNave(0).SetCoordinata(1, 2);
 
-            casellaUsata = new bool[DIMENSIONEMAPPA+1, DIMENSIONEMAPPA+1];
+            casellaUsata = new bool[DIMENSIONEMAPPA+1, DIMENSIONEMAPPA+1]; //creazione di un array di bool di una dimensione maggiore del campo di battaglia da usare solo per il controllo delle navi gia inserite)
 
             //foreach(Nave nave in flotta)
 
@@ -85,13 +86,15 @@ namespace BattleShipTournament.Andrea
                     postoLibero = false; // resetta posto libero per essere usato in un altra nave
                 }
             }
-        }  // posizionamento random della flotta.
+        }  
 
-        private void RandomPosizioneEDirezione(Nave nave)
+        private void RandomPosizioneEDirezione(Nave nave) // crea numeri random per posizione e direzione
         {
             Random r = new Random();
             direzione = r.Next(0, 1);    //0= barca da posizionare il orizzontale, 1= verticale
-            if (direzione == 0)
+
+
+            if (direzione == 0)  //uso di random per selezionare le coordinate in base alla direzione e alla lunghezza della nave
             {
                 posizionamentoRiga = r.Next(1, DIMENSIONEMAPPA  - nave.Lunghezza);
                 posizionamentoColonna = r.Next(1, DIMENSIONEMAPPA );
@@ -101,16 +104,16 @@ namespace BattleShipTournament.Andrea
                 posizionamentoRiga = r.Next(1, DIMENSIONEMAPPA);
                 posizionamentoColonna = r.Next(1, DIMENSIONEMAPPA - nave.Lunghezza);
             }
-        }  // crea numeri random per posizione e direzione
+        }  
 
         private void ControlloPostoLibero(Nave nave) // controlla se la nave può essere posizionata
         {
 
-            if (casellaUsata[posizionamentoRiga, posizionamentoColonna] == false)
+            if (casellaUsata[posizionamentoRiga, posizionamentoColonna] == false)  //Controlla se la casella è già stata usata
             {
                 for (int i = 0; i < nave.Lunghezza - 1; i++)
                 {
-                    if (casellaUsata[posizionamentoRiga, posizionamentoColonna] == false) //Controlla se la casella è già stata usata
+                    if (casellaUsata[posizionamentoRiga, posizionamentoColonna] == false)  // controllo inutile?? forse da togliere
                     {
                         if (direzione == 0) //direzione orizzontale
                         {
@@ -122,6 +125,10 @@ namespace BattleShipTournament.Andrea
                                 {
                                     postoLibero = true;
                                 }
+                                else
+                                {
+                                    postoLibero = false;
+                                }
                             }
                             else if (i == nave.Lunghezza - 1) // controllo sull'ultima parte della nave
                             {
@@ -131,6 +138,10 @@ namespace BattleShipTournament.Andrea
                                 {
                                     postoLibero = true;
                                 }
+                                else
+                                {
+                                    postoLibero = false;
+                                }
                             }
                             else  // controllo sul resto della nave tranne prima ed ultima parte
                             {
@@ -138,6 +149,10 @@ namespace BattleShipTournament.Andrea
                                     casellaUsata[posizionamentoRiga + 1, posizionamentoColonna] == false)
                                 {
                                     postoLibero = true;
+                                }
+                                else
+                                {
+                                    postoLibero = false;
                                 }
                             }
                         }
@@ -151,6 +166,10 @@ namespace BattleShipTournament.Andrea
                                 {
                                     postoLibero = true;
                                 }
+                                else
+                                {
+                                    postoLibero = false;
+                                }
                             }
                             else if (i == nave.Lunghezza - 1) // controllo sull'ultima parte della nave
                             {
@@ -160,6 +179,10 @@ namespace BattleShipTournament.Andrea
                                 {
                                     postoLibero = true;
                                 }
+                                else
+                                {
+                                    postoLibero = false;
+                                }
                             }
                             else  // controllo sul resto della nave tranne prima ed ultima parte
                             {
@@ -167,6 +190,10 @@ namespace BattleShipTournament.Andrea
                                     casellaUsata[posizionamentoRiga, posizionamentoColonna + 1] == false)
                                 {
                                     postoLibero = true;
+                                }
+                                else
+                                {
+                                    postoLibero = false;
                                 }
                             }
                         }
