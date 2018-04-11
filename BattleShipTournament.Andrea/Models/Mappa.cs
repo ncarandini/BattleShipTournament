@@ -15,9 +15,14 @@ namespace BattleShipTournament.Andrea.Models
             mappa = new Casella[dimensione, dimensione];
         }
 
-        public Casella getCasella(Coordinate coordinate)
+        public Casella getCasella(CoordinataXY coordinate)
         {
             return mappa[coordinate.Riga, coordinate.Colonna];
+        }
+
+        public void SetCasellaPiena(CoordinataXY coordinata)
+        {
+            mappa[coordinata.Riga, coordinata.Colonna].Piena = true;
         }
     }
 }

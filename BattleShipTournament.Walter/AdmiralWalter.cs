@@ -52,18 +52,18 @@ namespace BattleShipTournament.Walter
                 bool versoNave = rand.Next() % 2 == 0;
 
                 //genero random la posizione iniziale della nave
-                int riga = rand.Next(0, 10);
-                int colonna = rand.Next(0, 10);
-
                 Nave naveDaPosizionare = laMiaFlotta[indice];
-                Coordinate posizioneIniziale = new Coordinate(riga, colonna);
-
+                Coordinate posizioneIniziale = generaCoordinataRandom();
                 //provo a posizionare la nave
                 bool flag = true;
                 List<Coordinate> prova = naveDaPosizionare.impostaPosizione(posizioneIniziale, versoNave);
                 foreach (Coordinate c in prova)
                     if (posizioniOccupate.Contains(c))
+                    {
                         flag = false;
+                        break;
+                    }
+                        
                 // se tutte le posizioni sono libere la nave è posizionata con successo
                 if (flag)
                 {
@@ -83,6 +83,11 @@ namespace BattleShipTournament.Walter
                 effettoSparo = n.ControlloDanni(sparo);
                 if (effettoSparo.Equals(EffettoSparo.Acqua))
                     continue;
+                else if (effettoSparo.Equals(EffettoSparo.Affondato))
+                {
+                    laMiaFlotta.Remove(n);
+                    break;
+                }  
                 else
                     break;
             }
@@ -91,14 +96,11 @@ namespace BattleShipTournament.Walter
 
         public Coordinate Spara()
         {
-            Random rand = new Random();
             Coordinate sparo;
 
             while(true)
-            {
-                int riga = rand.Next(0, 10);
-                int colonna = rand.Next(0, 10);
-                sparo = new Coordinate(riga, colonna);
+            {               
+                sparo = generaCoordinataRandom();
                 //se non ho già provato a sparare in questa posizione
                 if(!campoNemico.Contains(sparo))
                 {
@@ -108,6 +110,16 @@ namespace BattleShipTournament.Walter
             }
 
             return sparo;
+        }
+
+        private Coordinate generaCoordinataRandom()
+        {
+            Random random = new Random();
+            int riga = random.Next(0, 10);
+            int colonna = random.Next(0, 10);
+            Coordinate coordinata = new Coordinate(riga, colonna);
+            return coordinata;
+
         }
     }
 }
