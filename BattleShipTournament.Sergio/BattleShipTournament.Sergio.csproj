@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="AdmiralSergio.cs" />
     <Compile Include="Models\Mappa.cs" />
-    <Compile Include="Models\ShipPart.cs" />
+    <Compile Include="Models\SeaPart.cs" />
     <Compile Include="Models\StatusShipPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Ship.cs" />
