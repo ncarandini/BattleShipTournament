@@ -10,7 +10,33 @@ namespace BattleshipTournament.Alessio.Models
     {
         public string Name { get; private set; }
         public int Length { get; private set; }
+
+        public string Id
+        {
+            get
+            {
+                return Name.Substring(0) + Name.Substring(Name.Length);
+            }
+        }
+
+        public bool isDeath
+        {
+            get
+            {
+                bool isdeath = false;
+                for (int i = 0; i < Parts.Length; i++)
+                {
+                    if (Parts[i] == true)
+                        isdeath = true;
+                    else
+                        isdeath = false;
+                }
+                return isdeath;
+            }
+        }
+
         public bool[] Parts;
+
 
         public Nave(string nome, int lunghezza)
         {
@@ -19,17 +45,9 @@ namespace BattleshipTournament.Alessio.Models
             Parts = new bool[Length];
         }
 
-        public string ValutaDanni()
+        public void DanneggiaNave(int indexParteNave)
         {
-            string situazioneDanni = string.Empty;
-            int puntiVita = Length;
-            for (int i = 0; i < Parts.Length; i++)
-            {
-                if (Parts[i] == true)
-                    --puntiVita;
-            }
-            situazioneDanni = string.Format("La nave {0} ha {1} punti vita su {2}", Name, puntiVita, Length);
-            return situazioneDanni;
+            Parts[indexParteNave] = true;
         }
     }
 }
