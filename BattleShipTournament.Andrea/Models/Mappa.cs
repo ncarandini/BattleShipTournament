@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BattleshipTournament.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,15 @@ namespace BattleShipTournament.Andrea.Models
 {
     class Mappa
     {
-        int[,] mappa;
-
-        public Mappa()
+        Casella[,] mappa;
+        public Mappa(int dimensione)
         {
-            mappa = new int[10,10];
+            mappa = new Casella[dimensione, dimensione];
+        }
+
+        public Casella getCasella(Coordinate coordinate)
+        {
+            return mappa[coordinate.Riga, coordinate.Colonna];
         }
     }
 }
