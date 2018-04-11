@@ -12,11 +12,11 @@ namespace BattleShipTournament.Walter
     {
         public string Nome => "Walter";
 
-        public event Action<IAdmiral> FlottaAffondata;
+        public event Action<IAdmiral> FlottaAffondata; 
 
         private List<Nave> laMiaFlotta;
-        private List<Coordinate> posizioniOccupate;
-        private List<Coordinate> campoNemico;
+        private List<Coordinate> posizioniOccupate; //le posizioni occupate dalla mia flotta
+        private List<Coordinate> campoNemico;       //le posizioni in cui ho sparato
         
 
         public AdmiralWalter()
@@ -37,6 +37,7 @@ namespace BattleShipTournament.Walter
             posizioniOccupate= new List<Coordinate>();
 
             //creo il campo di battaglia nemico
+            campoNemico = new List<Coordinate>();
            
         }
 
@@ -51,18 +52,18 @@ namespace BattleShipTournament.Walter
                 bool versoNave = rand.Next() % 2 == 0;
 
                 //genero random la posizione iniziale della nave
-                int riga = rand.Next(0, 10);
-                int colonna = rand.Next(0, 10);
-
                 Nave naveDaPosizionare = laMiaFlotta[indice];
-                Coordinate posizioneIniziale = new Coordinate(riga, colonna);
-
+                Coordinate posizioneIniziale = generaCoordinataRandom();
                 //provo a posizionare la nave
                 bool flag = true;
                 List<Coordinate> prova = naveDaPosizionare.impostaPosizione(posizioneIniziale, versoNave);
                 foreach (Coordinate c in prova)
                     if (posizioniOccupate.Contains(c))
+                    {
                         flag = false;
+                        break;
+                    }
+                        
                 // se tutte le posizioni sono libere la nave è posizionata con successo
                 if (flag)
                 {
@@ -74,30 +75,37 @@ namespace BattleShipTournament.Walter
         }
 
 
-        public EffettoSparo Rapporto()
+        public EffettoSparo Rapporto(Coordinate sparo)
         {
             EffettoSparo effettoSparo= EffettoSparo.Acqua;
             foreach(Nave n in laMiaFlotta)
             {
-               // effettoSparo = n.ControlloDanni();
+                effettoSparo = n.ControlloDanni(sparo);
                 if (effettoSparo.Equals(EffettoSparo.Acqua))
                     continue;
-                else
+                else if (effettoSparo.Equals(EffettoSparo.Affondato))
+                {
+                    //rimuovo la nave dalla lista una volta affondata. lista vuota = game over
+                    laMiaFlotta.Remove(n);
                     break;
+                }  
+                else if(effettoSparo.Equals(EffettoSparo.Colpito))
+                    break;
+            }
+            if(!laMiaFlotta.Any())
+            {
+                FlottaAffondata(this);
             }
             return effettoSparo;
         }
 
         public Coordinate Spara()
         {
-            Random rand = new Random();
             Coordinate sparo;
 
             while(true)
-            {
-                int riga = rand.Next(0, 10);
-                int colonna = rand.Next(0, 10);
-                sparo = new Coordinate(riga, colonna);
+            {               
+                sparo = generaCoordinataRandom();
                 //se non ho già provato a sparare in questa posizione
                 if(!campoNemico.Contains(sparo))
                 {
@@ -107,6 +115,16 @@ namespace BattleShipTournament.Walter
             }
 
             return sparo;
+        }
+
+        private Coordinate generaCoordinataRandom()
+        {
+            Random random = new Random();
+            int riga = random.Next(0, 10);
+            int colonna = random.Next(0, 10);
+            Coordinate coordinata = new Coordinate(riga, colonna);
+            return coordinata;
+
         }
     }
 }

@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Andrea.Models
+namespace BattleShipTournament.Nabil.Models
 {
-    public enum StatoParteNave
+    
+    internal enum StatusParteNave
     {
-        sana,
-        colpita
+        Good,
+        Damaged,
     }
 }

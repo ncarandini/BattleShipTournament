@@ -7,15 +7,25 @@ using System.Threading.Tasks;
 
 namespace BattleShipTournament.Andrea.Models
 {
-    struct ParteNave
+    public class ParteNave
     {
-        public Coordinate Coordinate { get; set; }
-        public StatoParteNave StatoParteNave { get; set; }
+        CoordinataXY coordinata;
 
-        public ParteNave(Coordinate coordinate, StatoParteNave statoParteNave)
+        public bool StatoParteNave { get; set; }
+
+        public ParteNave()
         {
-            Coordinate = coordinate;
-            StatoParteNave = statoParteNave;
+            StatoParteNave = false;
+        }
+
+        public void SetCoordinata(int riga, int colonna)
+        {
+            coordinata = new CoordinataXY(riga, colonna);
+        }
+
+        public void Colpito()
+        {
+            StatoParteNave = true;
         }
 
 

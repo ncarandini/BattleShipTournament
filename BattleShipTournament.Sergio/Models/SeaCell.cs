@@ -6,17 +6,22 @@ using System.Threading.Tasks;
 
 namespace BattleShipTournament.Sergio.Models
 {
-    internal class SeaPart
+    internal class SeaCell
     {
-        bool HasShip => Ship != null;
+        public bool isEmpty => Ship == null;
         public Ship Ship { get; private set; }
         public int PartIndex { get; private set; }
-        
-        public SeaPart(Ship ship = null, int partIndex = -1)
+
+        public SeaCell()
+        {
+
+        }
+
+        public SeaCell(Ship ship, int partIndex)
         {
             Ship = ship;
             PartIndex = partIndex;
         }
     }
-    
+
 }

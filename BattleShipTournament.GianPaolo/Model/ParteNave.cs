@@ -10,7 +10,10 @@ namespace BattleShipTournament.GianPaolo.Model
     {
         public int X { get; set; }
         public int Y { get; set; }
-        public string Stato { get; set; }
-
+        public String Stato { get; set; }
+        public void SetStato(string s)
+        {
+            Stato = s;
+        }
     }
 }

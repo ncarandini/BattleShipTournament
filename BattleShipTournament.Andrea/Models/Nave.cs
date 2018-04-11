@@ -12,23 +12,29 @@ namespace BattleShipTournament.Andrea.Models
         public int Lunghezza { get;private set; }
         public string Nome { get; private set; }
 
-        ParteNave[] partiNave;
+        public ParteNave[] parteNave { get; set; }
 
 
         public Nave(int lunghezza)
         {
             if (lunghezza < 1 || lunghezza > 5)
             {
-
+                throw new IndexOutOfRangeException("Lunghezza nave errata");
             }
             else
             {
                 Lunghezza = lunghezza;
                 Nome = NomeNave(lunghezza);
-                partiNave = new ParteNave[lunghezza];
+                parteNave = new ParteNave[lunghezza];
 
             }
         }
+
+        public ParteNave GetParteNave(int parte)
+        {
+            return parteNave[parte];
+        }
+        
 
         
 

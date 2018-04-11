@@ -7,9 +7,6 @@ using System.Threading.Tasks;
 
 namespace BattleShipTournament.Sergio
 
-// metodo Affondata - bool vero, falso
-// metodo Danneggiata (indice), restituisce falso (colpita ma non affondata) o vero (colpita e affondata)
-// nel costruttore passare nome e lunghezza della nave
 {
     internal class Ship
     {
@@ -19,20 +16,40 @@ namespace BattleShipTournament.Sergio
 
         public Ship(int lenght, string NameShip)
         {
-           if (lenght < 1 || lenght > 5)
-            {
-                
-            }
+
             this.lenght = lenght;
             this.NameShip = NameShip;
             statusShip = new StatusShipPart[lenght];
 
-            for(int i = 0; i < lenght; lenght++)
+            for (int i = 0; i < lenght; lenght++)
             {
                 statusShip[i] = StatusShipPart.Good;
             }
 
-        }       
+        }
+
+        public bool Colpita(int partIndex)
+        {
+            if (partIndex < 0 || partIndex >= lenght)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            statusShip[partIndex] = StatusShipPart.Damaged;
+            bool affondata = true;
+            foreach (var parte in statusShip)
+            {
+                if (parte == StatusShipPart.Good)
+                {
+                    affondata = false;
+                    break;
+                }
+
+            }
+
+            return affondata;
+        }
+
     }
-   
+
 }
