@@ -12,11 +12,11 @@ namespace BattleShipTournament.Walter
     {
         public string Nome => "Walter";
 
-        public event Action<IAdmiral> FlottaAffondata;
+        public event Action<IAdmiral> FlottaAffondata; //TODO
 
         private List<Nave> laMiaFlotta;
-        private List<Coordinate> posizioniOccupate;
-        private List<Coordinate> campoNemico;
+        private List<Coordinate> posizioniOccupate; //le posizioni occupate dalla mia flotta
+        private List<Coordinate> campoNemico;       //le posizioni in cui ho sparato
         
 
         public AdmiralWalter()
@@ -85,10 +85,11 @@ namespace BattleShipTournament.Walter
                     continue;
                 else if (effettoSparo.Equals(EffettoSparo.Affondato))
                 {
+                    //rimuovo la nave dalla lista una volta affondata. lista vuota = game over
                     laMiaFlotta.Remove(n);
                     break;
                 }  
-                else
+                else if(effettoSparo.Equals(EffettoSparo.Colpito))
                     break;
             }
             return effettoSparo;
