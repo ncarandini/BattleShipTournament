@@ -23,15 +23,7 @@ namespace BattleShipTournament.GianPaolo
 
         public event Action<IAdmiral> FlottaAffondata;
         public AdmiralGianpaolo()
-        {
-
-        }
-
-        
-        
-        
-
-        
+        { }
 
         public void PosizionaFlotta()
         {
