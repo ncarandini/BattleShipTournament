@@ -116,8 +116,7 @@ namespace BattleshipTournament.Alessio.Models
             int count = 0;
             if (nave.isDeath)
             {
-                
-
+                // TODO
             }
         }
     }
