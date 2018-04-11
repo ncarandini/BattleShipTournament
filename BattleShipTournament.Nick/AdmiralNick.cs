@@ -1,4 +1,5 @@
 ﻿using BattleshipTournament.Core.Models;
+using BattleShipTournament.Nick.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +14,57 @@ namespace BattleShipTournament.Nick
 
         public string Nome => "Nick";
 
-        public AdmiralNick(string nome)
+        StrategyManager strategyManager;
+        TacticalManager tacticalManager;
+
+        Ship[] fleet;
+
+        public AdmiralNick()
         {
-            
+            strategyManager = new StrategyManager();
+            tacticalManager = new TacticalManager();
+
+            fleet = new Ship[5]
+            {
+                new Ship(1),
+                new Ship(2),
+                new Ship(3),
+                new Ship(4),
+                new Ship(5)
+            };
         }
 
         public void PosizionaFlotta()
         {
-            throw new NotImplementedException();
+            strategyManager.PosizionaNavi(fleet);
         }
 
-        public EffettoSparo Rapporto()
+        public EffettoSparo Rapporto(Coordinate sparo)
         {
-            throw new NotImplementedException();
+            EffettoSparo effetto = strategyManager.RiceviColpoFaiRapporto(sparo);
+
+            if(FleetIsDestroyed())
+            {
+                FlottaAffondata?.Invoke(this);
+            }
+
+            return effetto;
+        }
+
+        private bool FleetIsDestroyed()
+        {
+            // TODO
+            return false;
         }
 
         public Coordinate Spara()
         {
-            throw new NotImplementedException();
+            return tacticalManager.Spara();
+        }
+
+        public void RiceviRapporto(EffettoSparo effettoSparo)
+        {
+            tacticalManager.RisultatoSparo(effettoSparo);
         }
     }
 }
