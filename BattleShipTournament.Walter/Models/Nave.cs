@@ -77,13 +77,13 @@ namespace BattleShipTournament.Walter.Models
             return posizioniOccupate;
         }
 
-        public EffettoSparo ControlloDanni(Coordinate colpo)
+        public EffettoSparo ControlloDanni(Coordinate zonaColpita)
         {
             EffettoSparo effetto = EffettoSparo.Acqua;
             //controllo se sono stato colpito
-            if(pezziNave.Contains(colpo))
+            if(pezziNave.Contains(zonaColpita))
             {
-                pezziNave.Remove(colpo);
+                pezziNave.Remove(zonaColpita);
                 if (pezziNave.Any())
                     effetto = EffettoSparo.Affondato;
                 else
