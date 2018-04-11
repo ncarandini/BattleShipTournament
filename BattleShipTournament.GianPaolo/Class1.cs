@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary3
+namespace BattleShipTournament.GianPaolo
 {
     public class Class1
     {
