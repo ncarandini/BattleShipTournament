@@ -9,13 +9,14 @@ namespace BattleShipTournament.Walter.Models
 {
     internal class Nave
     {
-        private Dictionary<Coordinate, Boolean> pezziNave; //TRUE=integro FALSE=colpito
+        private List<Coordinate> pezziNave;
+        //private Dictionary<Coordinate, Boolean> pezziNave; //TRUE=integro FALSE=colpito
         private int lunghezza;
 
         public Nave(int lunghezza)
         {
             this.lunghezza = lunghezza;
-            pezziNave = new Dictionary<Coordinate, Boolean>();
+            pezziNave = new List<Coordinate>();
         }
 
         public List<Coordinate> impostaPosizione(Coordinate posizioneIniziale, bool verso) //TRUE=orizzonatale FALSE=verticale
@@ -38,7 +39,7 @@ namespace BattleShipTournament.Walter.Models
                 {
                     int colonna = posizioneIniziale.Colonna + i;
                     Coordinate pezzo = new Coordinate(riga, colonna);
-                    pezziNave.Add(pezzo, true);
+                    pezziNave.Add(pezzo);
                     posizioniOccupate.Add(pezzo);
 
                     Coordinate c1 = new Coordinate(cornice1.Riga, cornice1.Colonna + i);
@@ -65,7 +66,7 @@ namespace BattleShipTournament.Walter.Models
                 {
                     int riga = posizioneIniziale.Riga + j;
                     Coordinate pezzo = new Coordinate(riga, colonna);
-                    pezziNave.Add(pezzo, true);
+                    pezziNave.Add(pezzo);
                     posizioniOccupate.Add(pezzo);
 
                     Coordinate c1 = new Coordinate(cornice1.Riga + j, cornice1.Colonna);
@@ -75,6 +76,21 @@ namespace BattleShipTournament.Walter.Models
                 }
             }
             return posizioniOccupate;
+        }
+
+        public EffettoSparo ControlloDanni(Coordinate colpo)
+        {
+            EffettoSparo effetto = EffettoSparo.Acqua;
+            //controllo se sono stato colpito
+            if(pezziNave.Contains(colpo))
+            {
+                pezziNave.Remove(colpo);
+                if (pezziNave.Any())
+                    effetto = EffettoSparo.Affondato;
+                else
+                    effetto = EffettoSparo.Colpito;
+            }
+            return effetto;
         }
 
     }
