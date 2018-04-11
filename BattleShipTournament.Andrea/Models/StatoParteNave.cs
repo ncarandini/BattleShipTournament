@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Sergio
+namespace BattleShipTournament.Andrea.Models
 {
-    class Mappa
+    public enum StatoParteNave
     {
+        sana,
+        colpita
     }
 }

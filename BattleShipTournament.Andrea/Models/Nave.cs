@@ -12,7 +12,7 @@ namespace BattleShipTournament.Andrea.Models
         public int Lunghezza { get;private set; }
         public string Nome { get; private set; }
 
-        bool[] parteNave;
+        ParteNave[] partiNave;
 
 
         public Nave(int lunghezza)
@@ -25,12 +25,8 @@ namespace BattleShipTournament.Andrea.Models
             {
                 Lunghezza = lunghezza;
                 Nome = NomeNave(lunghezza);
-                parteNave = new bool[lunghezza];
+                partiNave = new ParteNave[lunghezza];
 
-                for(int i=0; i<parteNave.Length;i++)
-                {
-                    parteNave[i] = true;
-                }
             }
         }
 
