@@ -71,10 +71,12 @@ namespace BattleShipTournament.Andrea
 
         }
 
-        public EffettoSparo Rapporto()
+        public EffettoSparo Rapporto(Coordinate sparo)
         {
             throw new NotImplementedException();
         }
+
+
 
         public Coordinate Spara()
         {
