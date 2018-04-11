@@ -8,7 +8,8 @@ namespace BattleShipTournament.Sergio.Models
 {
     internal enum StatusShipPart
     {
-       Sana,
-       Colpita
+       Good,
+       Damaged
     }
 }
+

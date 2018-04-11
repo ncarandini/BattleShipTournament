@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Sergio.Models
+namespace BattleShipTournament.Sergio
 {
-    internal struct SeaPart
+    class Shot
     {
-        public Ship Ship;
-        public int internalindex;
     }
 }
