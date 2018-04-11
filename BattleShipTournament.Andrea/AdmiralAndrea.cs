@@ -20,8 +20,16 @@ namespace BattleShipTournament.Andrea
 
         private Mappa mappaGiocatore;
         private Mappa mappaAvversario;
+        
 
-        Coordinate coordinateProva;
+        int posizionamentoRiga;
+        int posizionamentoColonna;
+        int direzione;
+
+        bool postoLibero;
+        bool[,] casellaUsata;
+
+
 
 
 
@@ -31,45 +39,170 @@ namespace BattleShipTournament.Andrea
             mappaGiocatore = new Mappa(DIMENSIONEMAPPA);
             mappaAvversario = new Mappa(DIMENSIONEMAPPA);
 
-            coordinateProva = new Coordinate(5, 5);
+            PosizionaFlotta(); //?? da inserire nel costruttore o no??
+            
+
             
 
 
         }
 
-        public void PosizionaFlotta()
+        public void PosizionaFlotta()  // posizionamento random della flotta.
         {
             //prova di inserimento coordinata in una partenave
-            flotta[1].GetParteNave(0).SetCoordinata(1, 2);
+            //flotta[1].GetParteNave(0).SetCoordinata(1, 2);
 
-            bool[,] casellaUsata = new bool[DIMENSIONEMAPPA, DIMENSIONEMAPPA];
+            casellaUsata = new bool[DIMENSIONEMAPPA+1, DIMENSIONEMAPPA+1]; //creazione di un array di bool di una dimensione maggiore del campo di battaglia da usare solo per il controllo delle navi gia inserite)
 
-            foreach(Nave nave in flotta)
+            //foreach(Nave nave in flotta)
+
+            for (int i=0;i<flotta.Length;)  // ciclo for su tutte le navi
             {
-                Random r = new Random();
-                int direzione = r.Next(0, 1);    //0= barca da posizionare il orizzontale, 1= verticale
-                if (direzione==0)
-                {
-                    int posizionamentoRiga = r.Next(0, DIMENSIONEMAPPA-1-nave.Lunghezza);
-                    int posizionamentoColonna = r.Next(0, DIMENSIONEMAPPA-1);
-                }
-                else
-                {
-                    int posizionamentoRiga = r.Next(0, DIMENSIONEMAPPA - 1);
-                    int posizionamentoColonna = r.Next(0, DIMENSIONEMAPPA - 1 - nave.Lunghezza);
-                    
-                }
-                
-                
-                for (int i=0; i< nave.parteNave.Length;i++)
-                {
+                RandomPosizioneEDirezione(flotta[i]);  //riempie direzione, posizionamentoRiga, posizionamentoColonna
 
+                ControlloPostoLibero(flotta[i]);
+
+                if(postoLibero)
+                {
+                    for (int j=0; i< flotta[i].parteNave.Length;i++)
+                    {
+                        if (direzione==0) // direzione orizzontale 
+                        {
+                            flotta[i].parteNave[j].SetCoordinata(posizionamentoRiga, posizionamentoColonna+ j); //inserisce coordinate nave nell'array di navi chiamato flotta.
+
+                            mappaGiocatore.SetCasellaPiena(new CoordinataXY(posizionamentoRiga, posizionamentoColonna + j)); //riempie la mappa giocatore
+
+                            casellaUsata[posizionamentoRiga, posizionamentoColonna + j] = true; //riempie array provvisiorio per controllare se successivamente posso inserire le navi.
+                        }
+                        else
+                        {
+                            flotta[i].parteNave[j].SetCoordinata(posizionamentoRiga+ j, posizionamentoColonna );
+                            casellaUsata[posizionamentoRiga+ j, posizionamentoColonna ] = true;
+                        }
+                    }
+
+                    i++; // aumenta contatore ciclo for per passare a nave successiva
+
+                    postoLibero = false; // resetta posto libero per essere usato in un altra nave
                 }
             }
+        }  
+
+        private void RandomPosizioneEDirezione(Nave nave) // crea numeri random per posizione e direzione
+        {
+            Random r = new Random();
+            direzione = r.Next(0, 1);    //0= barca da posizionare il orizzontale, 1= verticale
 
 
+            if (direzione == 0)  //uso di random per selezionare le coordinate in base alla direzione e alla lunghezza della nave
+            {
+                posizionamentoRiga = r.Next(1, DIMENSIONEMAPPA  - nave.Lunghezza);
+                posizionamentoColonna = r.Next(1, DIMENSIONEMAPPA );
+            }
+            else
+            {
+                posizionamentoRiga = r.Next(1, DIMENSIONEMAPPA);
+                posizionamentoColonna = r.Next(1, DIMENSIONEMAPPA - nave.Lunghezza);
+            }
+        }  
 
+        private void ControlloPostoLibero(Nave nave) // controlla se la nave può essere posizionata
+        {
+
+            if (casellaUsata[posizionamentoRiga, posizionamentoColonna] == false)  //Controlla se la casella è già stata usata
+            {
+                for (int i = 0; i < nave.Lunghezza - 1; i++)
+                {
+                    if (casellaUsata[posizionamentoRiga, posizionamentoColonna] == false)  // controllo inutile?? forse da togliere
+                    {
+                        if (direzione == 0) //direzione orizzontale
+                        {
+                            if (i == 0) //controllo sulla prima parte della barca da posizionare il orizzontale
+                            {
+                                if (casellaUsata[posizionamentoRiga, posizionamentoColonna - 1] == false ||
+                                    casellaUsata[posizionamentoRiga - 1, posizionamentoColonna] == false ||
+                                    casellaUsata[posizionamentoRiga + 1, posizionamentoColonna] == false)
+                                {
+                                    postoLibero = true;
+                                }
+                                else
+                                {
+                                    postoLibero = false;
+                                }
+                            }
+                            else if (i == nave.Lunghezza - 1) // controllo sull'ultima parte della nave
+                            {
+                                if (casellaUsata[posizionamentoRiga, posizionamentoColonna + 1] == false ||
+                                    casellaUsata[posizionamentoRiga - 1, posizionamentoColonna] == false ||
+                                    casellaUsata[posizionamentoRiga + 1, posizionamentoColonna] == false)
+                                {
+                                    postoLibero = true;
+                                }
+                                else
+                                {
+                                    postoLibero = false;
+                                }
+                            }
+                            else  // controllo sul resto della nave tranne prima ed ultima parte
+                            {
+                                if (casellaUsata[posizionamentoRiga - 1, posizionamentoColonna] == false ||
+                                    casellaUsata[posizionamentoRiga + 1, posizionamentoColonna] == false)
+                                {
+                                    postoLibero = true;
+                                }
+                                else
+                                {
+                                    postoLibero = false;
+                                }
+                            }
+                        }
+                        else // controllo sulle navi da posizionare in verticale
+                        {
+                            if (i == 0) //controllo sulla prima parte della barca da posizionare il verticale
+                            {
+                                if (casellaUsata[posizionamentoRiga - 1, posizionamentoColonna] == false ||
+                                    casellaUsata[posizionamentoRiga, posizionamentoColonna - 1] == false ||
+                                    casellaUsata[posizionamentoRiga, posizionamentoColonna + 1] == false)
+                                {
+                                    postoLibero = true;
+                                }
+                                else
+                                {
+                                    postoLibero = false;
+                                }
+                            }
+                            else if (i == nave.Lunghezza - 1) // controllo sull'ultima parte della nave
+                            {
+                                if (casellaUsata[posizionamentoRiga + 1, posizionamentoColonna] == false ||
+                                    casellaUsata[posizionamentoRiga, posizionamentoColonna - 1] == false ||
+                                    casellaUsata[posizionamentoRiga, posizionamentoColonna + 1] == false)
+                                {
+                                    postoLibero = true;
+                                }
+                                else
+                                {
+                                    postoLibero = false;
+                                }
+                            }
+                            else  // controllo sul resto della nave tranne prima ed ultima parte
+                            {
+                                if (casellaUsata[posizionamentoRiga, posizionamentoColonna - 1] == false ||
+                                    casellaUsata[posizionamentoRiga, posizionamentoColonna + 1] == false)
+                                {
+                                    postoLibero = true;
+                                }
+                                else
+                                {
+                                    postoLibero = false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
+
+
 
         public EffettoSparo Rapporto(Coordinate sparo)
         {
