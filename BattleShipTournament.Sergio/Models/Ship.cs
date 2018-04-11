@@ -6,28 +6,50 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BattleShipTournament.Sergio
+
 {
     internal class Ship
     {
         public string NameShip { get; private set; }
         StatusShipPart[] statusShip;
-        int lunghezza;
+        int lenght;
 
-        public Ship(int lunghezza)
+        public Ship(int lenght, string NameShip)
         {
-           if (lunghezza < 1 || lunghezza > 5)
-            {
-                
-            }
-            this.lunghezza = lunghezza;
-            statusShip = new StatusShipPart[lunghezza];
 
-            for(int i = 0; i < lunghezza; lunghezza++)
+            this.lenght = lenght;
+            this.NameShip = NameShip;
+            statusShip = new StatusShipPart[lenght];
+
+            for (int i = 0; i < lenght; lenght++)
             {
-                statusShip[i] = StatusShipPart.Sana;
+                statusShip[i] = StatusShipPart.Good;
             }
 
-                
         }
+
+        public bool Colpita(int partIndex)
+        {
+            if (partIndex < 0 || partIndex >= lenght)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            statusShip[partIndex] = StatusShipPart.Damaged;
+            bool affondata = true;
+            foreach (var parte in statusShip)
+            {
+                if (parte == StatusShipPart.Good)
+                {
+                    affondata = false;
+                    break;
+                }
+
+            }
+
+            return affondata;
+        }
+
     }
+
 }

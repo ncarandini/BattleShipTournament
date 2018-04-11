@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleShipTournament.Sergio.Models
 {
-    internal struct SeaPart
+    class TacticalManager
     {
-        public Ship Ship;
-        public int internalindex;
     }
 }

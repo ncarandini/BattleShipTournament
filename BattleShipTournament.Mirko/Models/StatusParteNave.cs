@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Sergio
+namespace BattleShipTournament.Mirko.Models
 {
-    class Sparo
+    internal enum StatusParteNave
     {
+        Good,
+        Damaged
     }
 }
