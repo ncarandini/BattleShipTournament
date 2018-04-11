@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace BattleShipTournament.Emanuel.Models
 {
-    class Map
+    internal enum StatusParteNave
     {
-        int[,] Battleield = new int[10, 10];
+        Good, 
+        Damaged
     }
 }
