@@ -75,12 +75,12 @@ namespace BattleShipTournament.Walter
         }
 
 
-        public EffettoSparo Rapporto()
+        public EffettoSparo Rapporto(Coordinate sparo)
         {
             EffettoSparo effettoSparo= EffettoSparo.Acqua;
             foreach(Nave n in laMiaFlotta)
             {
-                //effettoSparo = n.ControlloDanni();
+                effettoSparo = n.ControlloDanni(sparo);
                 if (effettoSparo.Equals(EffettoSparo.Acqua))
                     continue;
                 else
