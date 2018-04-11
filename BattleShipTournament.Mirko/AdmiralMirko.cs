@@ -9,10 +9,6 @@ namespace BattleShipTournament.Mirko
 {
     public class AdmiralMirko : IAdmiral
     {
-        public AdmiralMirko()
-        {
-
-        }
 
         public string Nome => "Mirko";
 
@@ -20,10 +16,15 @@ namespace BattleShipTournament.Mirko
 
         public void PosizionaFlotta()
         {
+
+        }
+
+        public EffettoSparo Rapporto (Coordinate sparo)
+        {
             throw new NotImplementedException();
         }
 
-        public EffettoSparo Rapporto()
+        public void RiceviRapporto(EffettoSparo effettoSparo)
         {
             throw new NotImplementedException();
         }
@@ -34,3 +35,4 @@ namespace BattleShipTournament.Mirko
         }
     }
 }
+
