@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdmiralGianpaolo.cs" />
+    <Compile Include="Model\Mappa.cs" />
     <Compile Include="Model\Nave.cs" />
     <Compile Include="Model\ParteNave.cs" />
+    <Compile Include="Model\Posizione.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
