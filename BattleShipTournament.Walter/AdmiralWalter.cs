@@ -126,5 +126,10 @@ namespace BattleShipTournament.Walter
             return coordinata;
 
         }
+
+        public void RiceviRapporto(EffettoSparo effettoSparo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
