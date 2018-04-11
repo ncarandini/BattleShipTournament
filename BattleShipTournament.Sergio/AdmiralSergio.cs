@@ -23,12 +23,17 @@ namespace BattleShipTournament.Sergio
             throw new NotImplementedException();
         }
 
-        public EffettoSparo Rapporto()
+        public Coordinate Spara()
         {
             throw new NotImplementedException();
         }
 
-        public Coordinate Spara()
+        public EffettoSparo Rapporto(Coordinate sparo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RiceviRapporto(EffettoSparo effettoSparo)
         {
             throw new NotImplementedException();
         }
