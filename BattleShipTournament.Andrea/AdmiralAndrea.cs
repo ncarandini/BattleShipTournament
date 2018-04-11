@@ -32,10 +32,6 @@ namespace BattleShipTournament.Andrea
         bool postoLibero;
         bool[,] casellaUsata;
 
-
-
-
-
         public AdmiralAndrea()
         {
             InizializzaNavi();
@@ -230,6 +226,9 @@ namespace BattleShipTournament.Andrea
             }
         }
 
-
+        public void RiceviRapporto(EffettoSparo effettoSparo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
