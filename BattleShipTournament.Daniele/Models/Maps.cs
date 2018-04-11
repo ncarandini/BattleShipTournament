@@ -10,7 +10,10 @@ namespace BattleShipTournament.Daniele.Models
     {
         Maps[,] seaMap;
         
-        seaMap = new Maps [10,10];
+        // seaMap è in nome di una variabile, e deve stare dento un metodo o costruttore
+        // ti ho commentato la riga
+
+        // seaMap = new Maps [10,10];
        
     }
 
