@@ -40,5 +40,10 @@ namespace BattleshipTournament.Alessio
         {
             throw new NotImplementedException();
         }
+
+        public void RiceviRapporto (EffettoSparo effettoSparo)
+        {
+            // TODO
+        }
     }
 }
