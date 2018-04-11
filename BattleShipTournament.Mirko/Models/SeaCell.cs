@@ -20,15 +20,13 @@ namespace BattleShipTournament.Mirko.Models
         // creo una proprietà intera partIndex per effettuare il get e modificarne privatamente il valore
         public int PartIndex { get; private set; }
 
-        // costruttore vuoto da definire in ogni caso
-        // per definire una cella che non ha nave
+        // costruttore vuoto da definire in ogni caso per definire una cella che non ha nave
         public SeaCell()
         {
 
         }
 
-        // costruttore per associare alla cella identificata da partIndex
-        // una parte di una nave e l'indice in cui viene posizionata
+        // costruttore per associare alla cella identificata da partIndex una parte di una nave e l'indice in cui viene posizionata
         public SeaCell (Nave nave, int partIndex)
         {
             Nave = nave;

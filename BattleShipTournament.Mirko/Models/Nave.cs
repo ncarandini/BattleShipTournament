@@ -28,22 +28,19 @@ namespace BattleShipTournament.Mirko.Models
         }
 
         // metodo
-        // per partIndex si intende l'indice delle parti della nave, 
-        // se indicata una parte non esistente (tipo parte 2 quando in realtà la nave è grande 1) viene generata un'eccezione
+        // per partIndex si intende l'indice delle parti della nave, se indicata una parte non esistente (tipo parte 2 quando in realtà la nave è grande 1) viene generata un'eccezione
         public bool Colpita (int partIndex)
         {
 
             if ((partIndex < 0) || (partIndex >= lunghezza)){
-                // lancio un'eccezione che comunica che il valore testato esce dal range definito; 
-                // potrei inserire un messaggio nelle parentesi ma non c'è bisogno
+                // lancio un'eccezione che comunica che il valore testato esce dal range definito;  potrei inserire un messaggio nelle parentesi ma non c'è bisogno
                 throw new ArgumentOutOfRangeException(); 
             }
 
             statusNave[partIndex] = StatusParteNave.Damaged; // marco come colpita la parte della nave identificata da partIndex
             bool affondata = true;
 
-            // cerco una parte della nave ancora intatta
-            // se trovo una parte intatta, pongo affondata = false e blocco il foreach
+            // cerco una parte della nave ancora intatta, se trovo una parte intatta, pongo affondata = false e blocco il foreach
             foreach (var statusParteNave in statusNave)
             {
                 if (statusParteNave == StatusParteNave.Good) 

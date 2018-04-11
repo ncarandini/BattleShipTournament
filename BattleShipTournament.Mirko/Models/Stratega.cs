@@ -14,22 +14,24 @@ namespace BattleShipTournament.Mirko.Models
         // costruttore della mappa
         public Stratega ()
         {
-            // inizializza la mappa
-            // chiama il costruttore vuoto di SeaCell
-            // il quale si occupa di riempire le celle con il mare
-            seaMap = new SeaCell[10,10];
-
+            // inizializza la mappa chiama il costruttore vuoto di SeaCell il quale si occupa di riempire le celle con il mare
+            seaMap = new SeaCell[10, 10];
+        }
+        
+        // metodo per il posizionamento delle navi che pongo come publico per far si che possa essere chiamato da AdmiralMirko
+        public void PosizionaNavi(Nave[] flotta)
+        {
             // posiziono A MANO le navi con un metodo orribile
-            Nave n1 = new Nave(1); // sommergibile
-            Nave n2 = new Nave(2); // fregata
-            Nave n3 = new Nave(3); // ...
-            Nave n4 = new Nave(4); // ...
-            Nave n5 = new Nave(5); // ...
+            Nave n1 = flotta[0];
+            Nave n2 = flotta[1];
+            Nave n3 = flotta[2];
+            Nave n4 = flotta[3];
+            Nave n5 = flotta[4];
 
             seaMap[2, 1] = new SeaCell(n1, 0); // sommergibile posizionato alla riga 2, colonna 1
 
             seaMap[0, 2] = new SeaCell(n2, 0);
-            seaMap[0, 3] = new SeaCell(n2, 1); // ecc ecc
+            seaMap[0, 3] = new SeaCell(n2, 1); 
 
             seaMap[1, 5] = new SeaCell(n3, 0);
             seaMap[2, 5] = new SeaCell(n3, 1);
@@ -45,19 +47,14 @@ namespace BattleShipTournament.Mirko.Models
             seaMap[6, 4] = new SeaCell(n5, 2);
             seaMap[6, 5] = new SeaCell(n5, 3);
             seaMap[6, 6] = new SeaCell(n5, 4);
-
-
         }
 
-        // metodo per la gestione del colpo ricevuto
-        // è di tipo EffettoSparo, definito nel Core
+        // metodo per la gestione del colpo ricevuto è di tipo EffettoSparo, definito nel Core
         public EffettoSparo RiceviColpoFaiRapporto (Coordinate sparo)
         {
             EffettoSparo risultato = EffettoSparo.Acqua;
 
-            // identifico la cella su cui è arrivato il colpo
-            // sparo è di tipo coordinate, la quale è composta da due variabili
-            // ossia Riga e Colonna
+            // identifico la cella su cui è arrivato il colpo sparo è di tipo coordinate, la quale è composta da due variabili ossia Riga e Colonna
             SeaCell seaCell = seaMap [sparo.Riga,sparo.Colonna];
 
             // testo la cella, verificando che NON sia vuota
