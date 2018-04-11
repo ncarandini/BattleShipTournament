@@ -37,6 +37,7 @@ namespace BattleShipTournament.Walter
             posizioniOccupate= new List<Coordinate>();
 
             //creo il campo di battaglia nemico
+            campoNemico = new List<Coordinate>();
            
         }
 
@@ -79,7 +80,7 @@ namespace BattleShipTournament.Walter
             EffettoSparo effettoSparo= EffettoSparo.Acqua;
             foreach(Nave n in laMiaFlotta)
             {
-               // effettoSparo = n.ControlloDanni();
+                //effettoSparo = n.ControlloDanni();
                 if (effettoSparo.Equals(EffettoSparo.Acqua))
                     continue;
                 else
