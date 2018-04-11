@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Sergio.Models
+namespace BattleShipTournament.Andrea.Models
 {
-    internal struct SeaPart
+    public enum StatoParteNave
     {
-        public Ship Ship;
-        public int internalindex;
+        sana,
+        colpita
     }
 }

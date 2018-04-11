@@ -1,5 +1,4 @@
 ﻿using BattleshipTournament.Core.Models;
-using BattleShipTournament.Core.Models;
 using BattleShipTournament.GianPaolo.Models;
 using System;
 using System.Collections.Generic;
@@ -24,15 +23,7 @@ namespace BattleShipTournament.GianPaolo
 
         public event Action<IAdmiral> FlottaAffondata;
         public AdmiralGianpaolo()
-        {
-
-        }
-
-        
-        
-        
-
-        
+        { }
 
         public void PosizionaFlotta()
         {

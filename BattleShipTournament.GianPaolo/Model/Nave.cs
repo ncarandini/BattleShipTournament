@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace BattleShipTournament.GianPaolo.Models
 {
@@ -12,13 +13,12 @@ namespace BattleShipTournament.GianPaolo.Models
         public int Lunghezza { get; set; }
         public string Nome { get; set; }
         public  List<ParteNave> PartiNave;
+        Posizione posizione = new Posizione();
+
        
 
-        public struct posizione
-        {
-            public int X { get; set; }
-            public int Y { get; set; }
-        }
+        
+
         public Nave(string nome,int lunghezza)
         {
             this.Lunghezza = lunghezza;
@@ -27,12 +27,17 @@ namespace BattleShipTournament.GianPaolo.Models
             for(int i=0; i<lunghezza;  i++ )
             {
                 ParteNave Parte = new ParteNave
-                {
+                {                 
                     Stato = "Intatto"
                 };
                 PartiNave.Add(Parte);
-            }
+            }         
         }
+        public void posizionaNave(int x,int y)
 
+        {
+            posizione.X = x;
+            posizione.Y = y;
+        }
     }
 }

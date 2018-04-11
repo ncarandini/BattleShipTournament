@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Sergio.Models
+namespace BattleShipTournament.Sergio
 {
-    internal enum StatusShipPart
+    public struct Placement
     {
-       Good,
-       Damaged
+        public int X { get; set; }
+        public int Y { get; set; }
     }
 }
-

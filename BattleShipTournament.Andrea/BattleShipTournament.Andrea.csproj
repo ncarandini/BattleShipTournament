@@ -43,6 +43,8 @@
     <Compile Include="AdmiralAndrea.cs" />
     <Compile Include="Models\Mappa.cs" />
     <Compile Include="Models\Nave.cs" />
+    <Compile Include="Models\ParteNave.cs" />
+    <Compile Include="Models\StatoParteNave.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
