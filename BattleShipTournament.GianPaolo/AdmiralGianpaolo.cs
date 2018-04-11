@@ -21,17 +21,22 @@ namespace BattleShipTournament.GianPaolo
         { }
 
 
-        public EffettoSparo Rapporto()
-        {
-            
-        }
-
         public Coordinate Spara()
         {
-            
+            throw new NotImplementedException();
         }
 
         public void PosizionaFlotta()
+        {
+            throw new NotImplementedException();
+        }
+
+        public EffettoSparo Rapporto(Coordinate sparo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RiceviRapporto(EffettoSparo effettoSparo)
         {
             throw new NotImplementedException();
         }
