@@ -12,7 +12,7 @@ namespace BattleShipTournament.Walter
     {
         public string Nome => "Walter";
 
-        public event Action<IAdmiral> FlottaAffondata; //TODO
+        public event Action<IAdmiral> FlottaAffondata; 
 
         private List<Nave> laMiaFlotta;
         private List<Coordinate> posizioniOccupate; //le posizioni occupate dalla mia flotta
@@ -91,6 +91,10 @@ namespace BattleShipTournament.Walter
                 }  
                 else if(effettoSparo.Equals(EffettoSparo.Colpito))
                     break;
+            }
+            if(!laMiaFlotta.Any())
+            {
+                FlottaAffondata(this);
             }
             return effettoSparo;
         }

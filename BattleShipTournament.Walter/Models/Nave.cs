@@ -84,7 +84,7 @@ namespace BattleShipTournament.Walter.Models
             if(pezziNave.Contains(zonaColpita))
             {
                 pezziNave.Remove(zonaColpita);
-                if (pezziNave.Any())
+                if (!pezziNave.Any())
                     effetto = EffettoSparo.Affondato;
                 else
                     effetto = EffettoSparo.Colpito;
