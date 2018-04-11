@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BattleShipTournament.Andrea.Models
 {
-    public enum StatoParteNave
+    struct Casella
     {
-        sana,
-        colpita
+        public bool Colpita { get; set; }
+        public bool Piena { get; set; }
     }
 }

@@ -1,30 +1,42 @@
-﻿using BattleshipTournament.Core.Models;
+﻿using BattleshipTournament.Alessio.Models;
+using BattleshipTournament.Core.Models;
 using System;
+using System.Collections.Generic;
 
 namespace BattleshipTournament.Alessio
 {
     public class AdmiralAlessio : IAdmiral
     {
         public string Nome => "Alessio";
+        private Mappa map;
+
 
         public AdmiralAlessio ()
         {
-            
+            map = new Mappa();
         }
 
         public event Action<IAdmiral> FlottaAffondata;
 
         public void PosizionaFlotta()
         {
-            throw new NotImplementedException();
+            
+            List<Coordinate> coordinate = new List<Coordinate>
+            {
+                new Coordinate(3, 9),
+                new Coordinate(6, 4),
+                new Coordinate(2, 1),
+                new Coordinate(8, 8),
+                new Coordinate(4, 2)
+            };
         }
 
-        public EffettoSparo Rapporto()
+        public Coordinate Spara()
         {
             throw new NotImplementedException();
         }
 
-        public Coordinate Spara()
+        public EffettoSparo Rapporto(Coordinate sparo)
         {
             throw new NotImplementedException();
         }
