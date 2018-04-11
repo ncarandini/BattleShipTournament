@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Sergio
+namespace BattleShipTournament.Sergio.Models
 {
-    class Mappa
+    internal enum StatusShipPart
     {
+       Sana,
+       Colpita
     }
 }

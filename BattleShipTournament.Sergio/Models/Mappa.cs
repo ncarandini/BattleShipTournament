@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace BattleShipTournament.Sergio
 {
-    internal abstract class Ship
+    internal class Mappa
     {
-        public string NameShip { get; set; }
-        public int Lenght { get; set; }
+        int[,] FleetMap;
     }
 }

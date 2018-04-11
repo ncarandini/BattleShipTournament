@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.GianPaolo
+namespace BattleShipTournament.Emanuel.Models
 {
-    public class Class1
+    class Map
     {
+        int[,] Battleield = new int[10, 10];
     }
 }
