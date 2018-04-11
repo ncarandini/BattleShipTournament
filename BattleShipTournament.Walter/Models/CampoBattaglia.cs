@@ -18,9 +18,6 @@ namespace BattleShipTournament.Walter.Models
                     mare.Add(new Coordinate(i, j));
         }
 
-        public void posizionaNave(Nave nave, Coordinate posizioneIniziale)
-        {
 
-        }
     }
 }
