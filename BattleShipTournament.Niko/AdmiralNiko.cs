@@ -72,6 +72,9 @@ namespace BattleShipTournament.Niko
             tacticalManager.RisultatoSparo(effettoSparo);
         }
 
-       
+        public EffettoSparo Rapporto()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
