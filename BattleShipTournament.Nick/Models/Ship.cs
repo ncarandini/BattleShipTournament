@@ -26,11 +26,16 @@ namespace BattleShipTournament.Nick.Models
 
         public bool Colpita(int partIndex)
         {
-            if ( partIndex <0 || partIndex >= length)
+            if (partIndex < 0 || partIndex >= length)
             {
                 throw new ArgumentOutOfRangeException();
             }
 
+            return Affondata();
+        }
+
+        public bool Affondata()
+        {
             bool affondata = true;
 
             foreach (var item in shipParts)

@@ -43,7 +43,7 @@ namespace BattleShipTournament.Nick
         {
             EffettoSparo effetto = strategyManager.RiceviColpoFaiRapporto(sparo);
 
-            if(FleetIsDestroyed())
+            if(effetto == EffettoSparo.Affondato && FleetIsDestroyed())
             {
                 FlottaAffondata?.Invoke(this);
             }
@@ -53,8 +53,18 @@ namespace BattleShipTournament.Nick
 
         private bool FleetIsDestroyed()
         {
-            // TODO
-            return false;
+            bool flottaAffondata = true;
+
+            foreach (var ship in fleet)
+            {
+                if (!ship.Affondata())
+                {
+                    flottaAffondata = false;
+                    break;
+                }
+            }
+
+            return flottaAffondata;
         }
 
         public Coordinate Spara()
