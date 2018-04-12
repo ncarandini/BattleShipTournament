@@ -49,10 +49,9 @@ namespace BattleShipTournament.Niko
                 {
                     FlottaAffondata?.Invoke(this);
                 }
-
-                return effetto;
             }
-            
+
+            return effetto;
         }
 
         private bool FleetIsDestroyed()
