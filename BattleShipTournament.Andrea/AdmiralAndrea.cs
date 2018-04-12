@@ -58,11 +58,11 @@ namespace BattleShipTournament.Andrea
 
                 if(postoLibero)
                 {
-                    for (int j=0; i< flotta[i].parteNave.Length;i++)
+                    for (int j=0; i< flotta[i].ParteNave.Length;i++)
                     {
                         if (direzione==0) // direzione orizzontale 
                         {
-                            flotta[i].parteNave[j].SetCoordinata(posizionamentoRiga, posizionamentoColonna+ j); //inserisce coordinate nave nell'array di navi chiamato flotta.
+                            flotta[i].ParteNave[j].SetCoordinata(posizionamentoRiga, posizionamentoColonna+ j); //inserisce coordinate nave nell'array di navi chiamato flotta.
 
                             mappaGiocatore.SetCasellaPiena(new CoordinataXY(posizionamentoRiga, posizionamentoColonna + j)); //riempie la mappa giocatore
 
@@ -78,7 +78,7 @@ namespace BattleShipTournament.Andrea
                         }
                         else
                         {
-                            flotta[i].parteNave[j].SetCoordinata(posizionamentoRiga+ j, posizionamentoColonna );
+                            flotta[i].ParteNave[j].SetCoordinata(posizionamentoRiga+ j, posizionamentoColonna );
 
                             casellaUsata[controlloRiga + j - 1, controlloColonna - 1] = true;
                             casellaUsata[controlloRiga + j - 1, controlloColonna] = true;
@@ -228,22 +228,43 @@ namespace BattleShipTournament.Andrea
 
         public EffettoSparo Rapporto(Coordinate sparo)
         {
-            throw new NotImplementedException();
+            if (mappaGiocatore.getCasella(new CoordinataXY(sparo.Riga,sparo.Colonna)).Piena)
+            {
+                int numeroNaveInCasella = mappaGiocatore.getCasella(new CoordinataXY(sparo.Riga, sparo.Colonna)).NumeroNaveInCasella;
+                
+                
+
+            }
+            return EffettoSparo.Acqua;
         }
+
 
         public Coordinate Spara()
         {
+                                      // da implementare il while true e fare un numero massimo di coordinate da cercare
+            while (true)
+            {
+                CoordinataXY coordinataSparo = RandomSparo();
+                if (!mappaAvversario.getCasella(coordinataSparo).Colpita) // controllo se ho già colpito la casella della mappa avversario
+                {
+                    return (new Coordinate(coordinataSparo.Riga, coordinataSparo.Colonna));
+                }
+            }
+        }
+
+            
+
+        
+
+        private CoordinataXY RandomSparo()
+        {
             Random r = new Random();
-            int sparoRiga = r.Next(0, DIMENSIONEMAPPA-1);
-            int sparoColonna = r.Next(0, DIMENSIONEMAPPA-1);
+            int sparoRiga = r.Next(0, DIMENSIONEMAPPA - 1);
+            int sparoColonna = r.Next(0, DIMENSIONEMAPPA - 1);
 
             CoordinataXY coordinataSparo = new CoordinataXY(sparoRiga, sparoColonna);
 
-
-            // da implementare  il controllo del colpo sulle zone vietate
-
-
-            return (new Coordinate(sparoRiga, sparoColonna));
+            return coordinataSparo;
 
         }
 
@@ -266,4 +287,5 @@ namespace BattleShipTournament.Andrea
             throw new NotImplementedException();
         }
     }
+    
 }
