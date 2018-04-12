@@ -2,6 +2,7 @@
 using BattleshipTournament.Core.Models;
 using BattleShipTournament.Nabil;
 using BattleShipTournament.Nick;
+using BattleShipTournament.Walter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace BattleshipTournament.ConsoleApp
         static void Main(string[] args)
         {
             GameManager gameManager = new GameManager(
-                new AdmiralNick(),
+                new AdmiralWalter(),
                 new AdmiralNabil(),
                 new ConsoleLogger()
             );
