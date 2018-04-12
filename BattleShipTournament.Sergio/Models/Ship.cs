@@ -36,6 +36,12 @@ namespace BattleShipTournament.Sergio
             }
 
             statusShip[partIndex] = StatusShipPart.Damaged;
+
+            return Affondata();
+        }
+
+        public bool Affondata()
+        {
             bool affondata = true;
             foreach (var parte in statusShip)
             {
@@ -49,7 +55,6 @@ namespace BattleShipTournament.Sergio
 
             return affondata;
         }
-
     }
 
 }
