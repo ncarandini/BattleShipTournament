@@ -28,6 +28,8 @@ namespace BattleShipTournament.Walter
             Nave fregata = new Nave(3);
             Nave cacciatorpediniere = new Nave(4);
             Nave portaerei = new Nave(5);
+
+            laMiaFlotta = new List<Nave>();
             laMiaFlotta.Add(sottomarino);
             laMiaFlotta.Add(corvetta);
             laMiaFlotta.Add(fregata);
