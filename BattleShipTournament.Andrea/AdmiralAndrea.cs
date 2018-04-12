@@ -205,11 +205,18 @@ namespace BattleShipTournament.Andrea
             throw new NotImplementedException();
         }
 
-
-
         public Coordinate Spara()
         {
-            throw new NotImplementedException();
+            Random r = new Random();
+            int sparoRiga = r.Next(0, DIMENSIONEMAPPA-1);
+            int sparoColonna = r.Next(0, DIMENSIONEMAPPA-1);
+
+            CoordinataXY coordinataSparo = new CoordinataXY(sparoRiga, sparoColonna);
+            // da implementare  il controllo del colpo sulle zone vietate
+
+
+            return (new Coordinate(sparoRiga, sparoColonna));
+
         }
 
 
