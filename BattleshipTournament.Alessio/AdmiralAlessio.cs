@@ -9,41 +9,92 @@ namespace BattleshipTournament.Alessio
     {
         public string Nome => "Alessio";
         private Mappa map;
+        //private List<string> rapportiSpari;
 
 
         public AdmiralAlessio ()
         {
             map = new Mappa();
+            //rapportiSpari = new List<string>();
         }
 
         public event Action<IAdmiral> FlottaAffondata;
 
         public void PosizionaFlotta()
         {
-            
-            List<Coordinate> coordinate = new List<Coordinate>
+            List<Nave> listaNavi = new List<Nave>
             {
-                new Coordinate(3, 9),
-                new Coordinate(6, 4),
-                new Coordinate(2, 1),
-                new Coordinate(8, 8),
-                new Coordinate(4, 2)
+                new Nave("Nave1", 1),
+                new Nave("Nave2", 2),
+                new Nave("Nave3", 3),
+                new Nave("Nave4", 4),
+                new Nave("Nave5", 5)
             };
+
+            List<Coordinate> coordinatePosizionamento = new List<Coordinate>
+            {
+                new Coordinate(0, 3),
+                new Coordinate(4, 6),
+                new Coordinate(8, 2),
+                new Coordinate(5, 1),
+                new Coordinate(7, 6),
+            };
+
+            listaNavi.ForEach(x =>
+            {
+                coordinatePosizionamento.ForEach(y => 
+                {
+                    if (!map.PosizionaNave(x, y, GetRandomPosizionamento()))
+                    {
+                        throw new PosizionamentoException("Errore nel posizionamento di una nave... Riprova");
+                    }
+                });
+            });
         }
 
         public Coordinate Spara()
         {
-            throw new NotImplementedException();
+            Random random = new Random();
+            int riga = random.Next(0, 9);
+            int colonna = random.Next(0, 9);
+            Coordinate coordinate = new Coordinate(riga, colonna);
+            return coordinate;
         }
 
         public EffettoSparo Rapporto(Coordinate sparo)
         {
-            throw new NotImplementedException();
+            return map.VerificaSparo(sparo);
         }
 
         public void RiceviRapporto (EffettoSparo effettoSparo)
         {
-            // TODO
+            Console.WriteLine($"Risultato sparo = {GetRisultatoSparo(effettoSparo)}");
+        }
+
+        private char GetRandomPosizionamento()
+        {
+            string posizionamento = "hv";
+            Random rand = new Random();
+            int index = rand.Next(0, posizionamento.Length - 1);
+            return posizionamento[index];
+        }
+
+        private string GetRisultatoSparo(EffettoSparo effettoSparo)
+        {
+            string risultato = string.Empty;
+            switch (effettoSparo)
+            {
+                case EffettoSparo.Acqua:
+                    risultato = "Acqua";
+                    break;
+                case EffettoSparo.Colpito:
+                    risultato = "Colpito";
+                    break;
+                case EffettoSparo.Affondato:
+                    risultato = "Affondato";
+                    break;
+            }
+            return risultato;
         }
     }
 }
