@@ -1,34 +1,37 @@
 ﻿using BattleshipTournament.Core.Models;
+using BattleShipTournament.GianPaolo.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Sergio
+namespace BattleShipTournament.GianPaolo
 {
-    public class AdmiralSergio : IAdmiral
+    public class AdmiralGianpaolo : IAdmiral
     {
-        public string Nome => "Sergio";
 
-        public AdmiralSergio()
-        {
+        Mappa mappa = Mappa.Instanza();
 
-        }
-       
+        public string Nome => "Gianpaolo";
+
         public event Action<IAdmiral> FlottaAffondata;
 
-        public void PosizionaFlotta()
-        {
-            throw new NotImplementedException();
-        }
+        public AdmiralGianpaolo()
+        { }
+
 
         public EffettoSparo Rapporto()
         {
-            throw new NotImplementedException();
+            
         }
 
         public Coordinate Spara()
+        {
+            
+        }
+
+        public void PosizionaFlotta()
         {
             throw new NotImplementedException();
         }

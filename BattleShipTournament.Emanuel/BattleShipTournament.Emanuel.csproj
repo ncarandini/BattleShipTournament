@@ -41,6 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdmiralEmanuel.cs" />
+    <Compile Include="Models\Nave.cs" />
+    <Compile Include="Models\SeaCell.cs" />
+    <Compile Include="Models\StatusParteNave.cs" />
+    <Compile Include="Models\Stratega.cs" />
+    <Compile Include="Models\Tattico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,5 +54,6 @@
       <Name>BattleShipTournament.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
