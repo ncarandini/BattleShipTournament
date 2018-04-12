@@ -35,7 +35,7 @@ namespace BattleshipTournament.Alessio.Models
             }
         }
 
-        public bool[] Parts;
+        public bool[] Parts { get; private set; }
 
 
         public Nave(string nome, int lunghezza)

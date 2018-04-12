@@ -101,12 +101,23 @@ namespace BattleshipTournament.Alessio.Models
             {
                 var navePosizionata = navi.Where(x => x.Id == mappa[coordinate.Riga, coordinate.Colonna]);
                 Nave nave = (Nave) navePosizionata;
-                nave.DanneggiaNave(mappa[coordinate.Riga, coordinate.Colonna].Length);
+                nave.DanneggiaNave(Convert.ToInt32(mappa[coordinate.Riga, coordinate.Colonna].Last()));
                 mappa[coordinate.Riga, coordinate.Colonna] = EffettoSparo.Colpito.ToString();
                 risultato = EffettoSparo.Colpito;
             }
 
             return risultato;
+        }
+
+        public void VerificaStatusNave(Coordinate coordinate, Nave nave)
+        {
+            string idNave = nave.Id;
+            int parteNave = Convert.ToInt32(mappa[coordinate.Riga, coordinate.Colonna].Last());
+            int count = 0;
+            if (nave.isDeath)
+            {
+                // TODO
+            }
         }
     }
 }

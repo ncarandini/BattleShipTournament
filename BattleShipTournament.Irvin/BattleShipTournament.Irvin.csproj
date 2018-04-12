@@ -41,6 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdmiralIrvin.cs" />
+    <Compile Include="Models\Mappa.cs" />
+    <Compile Include="Models\Ship.cs" />
+    <Compile Include="Models\SeaCell.cs" />
+    <Compile Include="Models\StatusParteNave.cs" />
+    <Compile Include="Models\Stratega.cs" />
+    <Compile Include="Models\Tattico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

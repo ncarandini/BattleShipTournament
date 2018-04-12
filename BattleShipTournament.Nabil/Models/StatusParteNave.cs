@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Emanuel.Models
+namespace BattleShipTournament.Nabil.Models
 {
-    class Map
+    
+    internal enum StatusParteNave
     {
-        int[,] Battleield = new int[10, 10];
+        Good,
+        Damaged,
     }
 }

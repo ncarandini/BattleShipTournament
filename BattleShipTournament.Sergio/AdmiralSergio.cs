@@ -56,7 +56,7 @@ namespace BattleShipTournament.Sergio
             return false;
         }
 
-        public Coordinate Spara()
+        public void RiceviRapporto(EffettoSparo effettoSparo)
         {
             return tacticalManager.Spara();
         }
