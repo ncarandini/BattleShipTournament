@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Sergio
+namespace BattleshipTournament.ConsoleApp.Models
 {
-    internal class Mappa
+    public interface ILogger
     {
-        Mappa[,] seaMap;
+        void Log(object sender, string message);
     }
 }

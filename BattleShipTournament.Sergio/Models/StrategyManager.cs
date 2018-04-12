@@ -11,13 +11,21 @@ namespace BattleShipTournament.Sergio.Models
     {
         SeaCell[,] seaMap;
         public StrategyManager()
+        
         {
+            
             seaMap = new SeaCell[10, 10];
-            Ship s1 = new Ship(1, "Sottomarino");
-            Ship s2 = new Ship(2, "Corvetta");
-            Ship s3 = new Ship(3, "Fregata");
-            Ship s4 = new Ship(4, "CacciaTorpediniere");
-            Ship s5 = new Ship(5, "Portaerei");
+
+        }
+
+        public void PosizionaNavi(Ship[] fleet)
+        {
+            
+            Ship s1 = fleet[0];
+            Ship s2 = fleet[1];
+            Ship s3 = fleet[2];
+            Ship s4 = fleet[3];
+            Ship s5 = fleet[4];
 
             seaMap[9, 5] = new SeaCell(s1, 0);
 
@@ -38,9 +46,6 @@ namespace BattleShipTournament.Sergio.Models
             seaMap[2, 6] = new SeaCell(s5, 2);
             seaMap[2, 7] = new SeaCell(s5, 3);
             seaMap[2, 8] = new SeaCell(s5, 4);
-
-
-
         }
 
         public EffettoSparo RiceviColpoFaiRapporto(Coordinate sparo)
