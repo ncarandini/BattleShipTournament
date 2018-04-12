@@ -1,4 +1,5 @@
 ﻿using BattleshipTournament.Core.Models;
+using BattleShipTournament.Niko.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,27 +14,65 @@ namespace BattleShipTournament.Niko
 
         public event Action<IAdmiral> FlottaAffondata;
 
+        StrategyManager strategyManager;
+        TacticalManager tacticalManager;
+
+        Nave[] flotta;
+
         public AdmiralNiko()
         {
+            strategyManager = new StrategyManager();
+            tacticalManager = new TacticalManager();
 
+            flotta = new Nave[5]
+            {
+                new Nave(1),
+                new Nave(2),
+                new Nave(3),
+                new Nave(4),
+                new Nave(5)
+            };
         }
 
         public void PosizionaFlotta()
         {
-            throw new NotImplementedException();
-        }
-
-        public Coordinate Spara()
-        {
-            throw new NotImplementedException();
+            strategyManager.PosizionaNavi(flotta);
         }
 
         public EffettoSparo Rapporto(Coordinate sparo)
         {
-            throw new NotImplementedException();
+            EffettoSparo effetto = strategyManager.RiceviColpoEFaiRapporto(sparo);
+
+            if(FleetIsDestroyed())
+            {
+                if (FlottaAffondata != null)
+                {
+                    FlottaAffondata?.Invoke(this);
+                }
+
+                return effetto;
+            }
+            
+        }
+
+        private bool FleetIsDestroyed()
+        {
+            // TODO
+            return false;
+        }
+
+
+        public Coordinate Spara()
+        {
+            return tacticalManager.Spara();
         }
 
         public void RiceviRapporto(EffettoSparo effettoSparo)
+        {
+            tacticalManager.RisultatoSparo(effettoSparo);
+        }
+
+        public EffettoSparo Rapporto()
         {
             throw new NotImplementedException();
         }
