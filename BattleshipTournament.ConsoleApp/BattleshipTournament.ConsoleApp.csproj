@@ -42,14 +42,66 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\ConsoleLogger.cs" />
+    <Compile Include="Models\GameManager.cs" />
+    <Compile Include="Models\GameResult.cs" />
+    <Compile Include="Models\ILogger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\BattleshipTournament.Alessio\BattleshipTournament.Alessio.csproj">
+      <Project>{0818e6d5-2788-4b3d-b997-ca51b46a0c76}</Project>
+      <Name>BattleshipTournament.Alessio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BattleShipTournament.Andrea\BattleShipTournament.Andrea.csproj">
+      <Project>{15e720a7-2af1-48a1-a07e-e416c20b95a3}</Project>
+      <Name>BattleShipTournament.Andrea</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BattleShipTournament.Core\BattleShipTournament.Core.csproj">
+      <Project>{35af04f3-a680-4ccb-abcf-9b4f19d6b8eb}</Project>
+      <Name>BattleShipTournament.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BattleShipTournament.Daniele\BattleShipTournament.Daniele.csproj">
+      <Project>{7cce2a05-ff92-44b4-b96f-b176ac7876ca}</Project>
+      <Name>BattleShipTournament.Daniele</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BattleShipTournament.Emanuel\BattleShipTournament.Emanuel.csproj">
+      <Project>{4c74cdf9-dfe5-475e-b22b-a4e790b6e70f}</Project>
+      <Name>BattleShipTournament.Emanuel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BattleShipTournament.Gianpaolo\BattleShipTournament.Gianpaolo.csproj">
+      <Project>{a85b6075-6e3b-4c06-b9c7-73b6736974e3}</Project>
+      <Name>BattleShipTournament.Gianpaolo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BattleShipTournament.Mirko\BattleShipTournament.Mirko.csproj">
+      <Project>{396bb296-bc60-42d9-91cf-d43b8b0b36a3}</Project>
+      <Name>BattleShipTournament.Mirko</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BattleShipTournament.Nabil\BattleShipTournament.Nabil.csproj">
+      <Project>{1770f09f-c548-4e7c-9c76-960704653c54}</Project>
+      <Name>BattleShipTournament.Nabil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BattleShipTournament.Nick\BattleShipTournament.Nick.csproj">
+      <Project>{6d99ec70-854b-463f-8015-8f3b44cfa586}</Project>
+      <Name>BattleShipTournament.Nick</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BattleShipTournament.Niko\BattleShipTournament.Niko.csproj">
+      <Project>{2b72ce0a-5787-4d56-aa91-03edf92fb7de}</Project>
+      <Name>BattleShipTournament.Niko</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BattleShipTournament.Sergio\BattleShipTournament.Sergio.csproj">
+      <Project>{d609d07f-ae05-4267-9e21-13f88f5070f8}</Project>
+      <Name>BattleShipTournament.Sergio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BattleShipTournament.Walter\BattleShipTournament.Walter.csproj">
+      <Project>{6b26d751-1cf4-4ae5-a41c-667e26deed29}</Project>
+      <Name>BattleShipTournament.Walter</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

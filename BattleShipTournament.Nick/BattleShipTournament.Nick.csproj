@@ -41,6 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdmiralNick.cs" />
+    <Compile Include="Models\Ship.cs" />
+    <Compile Include="Models\SeaCell.cs" />
+    <Compile Include="Models\SeaMap.cs" />
+    <Compile Include="Models\ShipPartStatus.cs" />
+    <Compile Include="Models\StatusParteNave.cs" />
+    <Compile Include="Models\StrategyManager.cs" />
+    <Compile Include="Models\TacticalManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

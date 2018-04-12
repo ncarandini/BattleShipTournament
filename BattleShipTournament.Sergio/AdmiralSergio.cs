@@ -1,4 +1,5 @@
 ﻿using BattleshipTournament.Core.Models;
+using BattleShipTournament.Sergio.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,24 @@ namespace BattleShipTournament.Sergio
     {
         public string Nome => "Sergio";
 
+        StrategyManager strategyManager;
+        TacticalManager tacticalManager;
+        Ship[] fleet;
+
+
         public AdmiralSergio()
         {
+            strategyManager = new StrategyManager();
+            tacticalManager = new TacticalManager();
+            fleet = new Ship[5]
+            {
+                new Ship(1, "Sottomarino"),
+                new Ship(2, "Corvetta"),
+                new Ship(3, "Fregata"),
+                new Ship(4, "Cacciatorpediniere"),
+                new Ship(5, " Portaerei")
+            };
+
 
         }
 
@@ -20,17 +37,35 @@ namespace BattleShipTournament.Sergio
 
         public void PosizionaFlotta()
         {
-            throw new NotImplementedException();
+            strategyManager.PosizionaNavi(fleet);
         }
 
-        public EffettoSparo Rapporto()
+        public EffettoSparo Rapporto(Coordinate sparo)
         {
-            throw new NotImplementedException();
+            EffettoSparo effetto = strategyManager.RiceviColpoFaiRapporto(sparo);
+            if(FleetIsDestroyed())
+            {
+                FlottaAffondata?.Invoke(this);
+            }
+            return effetto;
+        }
+
+        private bool FleetIsDestroyed()
+        {
+            //TODO
+            return false;
         }
 
         public Coordinate Spara()
         {
-            throw new NotImplementedException();
+            return tacticalManager.Spara();
+        }
+
+
+        public void RiceviRapporto(EffettoSparo effettoSparo)
+        {
+            tacticalManager.RisultatoSparo(effettoSparo);
         }
     }
 }
+

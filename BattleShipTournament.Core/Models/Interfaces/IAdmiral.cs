@@ -14,7 +14,9 @@ namespace BattleshipTournament.Core.Models
 
         Coordinate Spara();
 
-        EffettoSparo Rapporto();
+        EffettoSparo Rapporto(Coordinate sparo);
+
+        void RiceviRapporto(EffettoSparo effettoSparo);
 
         event Action<IAdmiral> FlottaAffondata;
     }
