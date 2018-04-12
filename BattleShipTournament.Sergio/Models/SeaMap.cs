@@ -8,6 +8,6 @@ namespace BattleShipTournament.Sergio
 {
     internal class Mappa
     {
-        int[,] FleetMap;
+        Mappa[,] seaMap;
     }
 }
