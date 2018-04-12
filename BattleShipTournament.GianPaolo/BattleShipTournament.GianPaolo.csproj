@@ -40,8 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AdmiralGianpaolo.cs" />
+    <Compile Include="Model\Mappa.cs" />
+    <Compile Include="Model\Nave.cs" />
+    <Compile Include="Model\ParteNave.cs" />
+    <Compile Include="Model\Posizione.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BattleShipTournament.Core\BattleShipTournament.Core.csproj">
+      <Project>{35af04f3-a680-4ccb-abcf-9b4f19d6b8eb}</Project>
+      <Name>BattleShipTournament.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
