@@ -19,6 +19,13 @@ namespace BattleshipTournament.Alessio.Models
             admiral = new AdmiralAlessio();
         }
 
+        /// <summary>
+        /// Metodo che posiziona la nave in base alle coordinate e alla posizione data (orrizzontale o verticale)
+        /// </summary>
+        /// <param name="nave">Tipo di nave</param>
+        /// <param name="coordinate">Coordinate x, y</param>
+        /// <param name="position">Metodo di posizionamento h (orrizontale) / v (verticale)</param>
+        /// <returns></returns>
         public bool PosizionaNave(Nave nave, Coordinate coordinate, char position)
         {
             bool disponibilita = false;
@@ -92,32 +99,27 @@ namespace BattleshipTournament.Alessio.Models
             return disponibilita;
         }
 
+        /// <summary>
+        /// Metodo che restituisce il risultato dello sparo in base alle coordinate date
+        /// </summary>
+        /// <param name="coordinate"></param>
+        /// <returns></returns>
         public EffettoSparo VerificaSparo(Coordinate coordinate)
         {
             EffettoSparo risultato = EffettoSparo.Acqua;
             if (mappa[coordinate.Riga, coordinate.Colonna] == string.Empty)
                 mappa[coordinate.Riga, coordinate.Colonna] = EffettoSparo.Acqua.ToString();
-            else if (mappa[coordinate.Riga, coordinate.Colonna] != EffettoSparo.Acqua.ToString() && mappa[coordinate.Riga, coordinate.Colonna] != EffettoSparo.Affondato.ToString())
+            else if (mappa[coordinate.Riga, coordinate.Colonna] != EffettoSparo.Acqua.ToString())
             {
                 var navePosizionata = navi.Where(x => x.Id == mappa[coordinate.Riga, coordinate.Colonna]);
                 Nave nave = (Nave) navePosizionata;
                 nave.DanneggiaNave(Convert.ToInt32(mappa[coordinate.Riga, coordinate.Colonna].Last()));
-                mappa[coordinate.Riga, coordinate.Colonna] = EffettoSparo.Colpito.ToString();
-                risultato = EffettoSparo.Colpito;
+                if (!nave.isDeath)
+                    risultato = EffettoSparo.Colpito;
+                else
+                    risultato = EffettoSparo.Affondato;
             }
-
             return risultato;
-        }
-
-        public void VerificaStatusNave(Coordinate coordinate, Nave nave)
-        {
-            string idNave = nave.Id;
-            int parteNave = Convert.ToInt32(mappa[coordinate.Riga, coordinate.Colonna].Last());
-            int count = 0;
-            if (nave.isDeath)
-            {
-                // TODO
-            }
         }
     }
 }
