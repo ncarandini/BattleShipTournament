@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Sergio
+namespace BattleShipTournament.Niko.Models
 {
-    internal class Mappa
+    class MargineNavi
     {
-        Mappa[,] seaMap;
     }
 }

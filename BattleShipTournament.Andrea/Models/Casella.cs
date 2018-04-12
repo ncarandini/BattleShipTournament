@@ -10,5 +10,7 @@ namespace BattleShipTournament.Andrea.Models
     {
         public bool Colpita { get; set; }
         public bool Piena { get; set; }
+
+        public int NumeroNaveInCasella { get; set; }
     }
 }

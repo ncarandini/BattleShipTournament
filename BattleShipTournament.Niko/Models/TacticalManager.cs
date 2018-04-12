@@ -5,7 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Sergio.Models
+namespace BattleShipTournament.Niko.Models
+
+    // vede le coordinate e posiziona le navi in base ai dettagli delle navi
+
 {
     public class TacticalManager
     {
@@ -13,11 +16,11 @@ namespace BattleShipTournament.Sergio.Models
         {
             return new Coordinate(0, 0);
         }
-        
+
         public void RisultatoSparo(EffettoSparo effettoSparo)
         {
-            //TODO
+
         }
-        
+
     }
 }

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShipTournament.Sergio
+namespace BattleShipTournament.Niko.Models
 {
-    internal class Mappa
+    public enum StatusParteNave
     {
-        Mappa[,] seaMap;
+        Good,
+        Damaged
     }
 }
