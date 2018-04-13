@@ -11,11 +11,10 @@ namespace BattleShipTournament.Andrea.Models
     {
         CoordinataXY coordinata;
 
-        public bool StatoParteNave { get; set; }
+        public bool Distrutta { get; set; }
 
         public ParteNave()
         {
-            StatoParteNave = false;
         }
 
         public void SetCoordinata(int riga, int colonna)
@@ -29,7 +28,7 @@ namespace BattleShipTournament.Andrea.Models
 
         public void Colpito()
         {
-            StatoParteNave = true;
+            Distrutta = true;
         }
 
 
