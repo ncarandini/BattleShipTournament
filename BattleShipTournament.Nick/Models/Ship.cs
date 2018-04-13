@@ -31,6 +31,8 @@ namespace BattleShipTournament.Nick.Models
                 throw new ArgumentOutOfRangeException();
             }
 
+            shipParts[partIndex] = ShipPartStatus.Damaged;
+
             return Affondata();
         }
 

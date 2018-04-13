@@ -78,6 +78,10 @@
       <Project>{a85b6075-6e3b-4c06-b9c7-73b6736974e3}</Project>
       <Name>BattleShipTournament.Gianpaolo</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BattleShipTournament.Irvin\BattleShipTournament.Irvin.csproj">
+      <Project>{ED83A802-766F-4455-AF77-35AB0BD2F050}</Project>
+      <Name>BattleShipTournament.Irvin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BattleShipTournament.Mirko\BattleShipTournament.Mirko.csproj">
       <Project>{396bb296-bc60-42d9-91cf-d43b8b0b36a3}</Project>
       <Name>BattleShipTournament.Mirko</Name>
