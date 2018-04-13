@@ -75,7 +75,7 @@ namespace BattleshipTournament.Alessio.Models
                     }
 
                     int posPrima = arrayPosizionamento[0] - 1;
-                    int posDopo = arrayPosizionamento[nave.Length] + 1;
+                    int posDopo = arrayPosizionamento[nave.Length-1] + 1;
 
                     if (posPrima > 0 && mappa[posPrima, coordinate.Colonna] == string.Empty)
                     {

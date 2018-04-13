@@ -58,7 +58,7 @@ namespace BattleshipTournament.Alessio
                 {
                     if (!map.PosizionaNave(x, y, GetRandomPosizionamento()))
                     {
-                        throw new PosizionamentoException("Errore nel posizionamento di una nave... Riprova");
+                        throw new Exception("Errore nel posizionamento di una nave... Riprova");
                     }
                 });
             });
@@ -82,6 +82,7 @@ namespace BattleshipTournament.Alessio
         {
             Console.WriteLine($"Risultato sparo = {GetRisultatoSparo(effettoSparo)}");
         }
+
 
         private char GetRandomPosizionamento()
         {
@@ -111,7 +112,7 @@ namespace BattleshipTournament.Alessio
 
         private int GetRandomNumber()
         {
-            int number = 0;
+            int number;
             Random random = new Random();
             number = random.Next(0, 9);
             return number;
