@@ -33,11 +33,11 @@ namespace BattleshipTournament.Alessio
 
             List<Coordinate> coordinatePosizionamento = new List<Coordinate>
             {
-                new Coordinate(0, 3),
-                new Coordinate(4, 6),
-                new Coordinate(8, 2),
-                new Coordinate(5, 1),
-                new Coordinate(7, 6),
+                new Coordinate(GetRandomNumber(), GetRandomNumber()),
+                new Coordinate(GetRandomNumber(), GetRandomNumber()),
+                new Coordinate(GetRandomNumber(), GetRandomNumber()),
+                new Coordinate(GetRandomNumber(), GetRandomNumber()),
+                new Coordinate(GetRandomNumber(), GetRandomNumber()),
             };
 
             listaNavi.ForEach(x =>
@@ -95,6 +95,14 @@ namespace BattleshipTournament.Alessio
                     break;
             }
             return risultato;
+        }
+
+        private int GetRandomNumber()
+        {
+            int number = 0;
+            Random random = new Random();
+            number = random.Next(0, 9);
+            return number;
         }
     }
 }
