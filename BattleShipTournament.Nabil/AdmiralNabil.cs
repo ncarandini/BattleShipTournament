@@ -42,17 +42,27 @@ namespace BattleShipTournament.Nabil
         public EffettoSparo Rapporto(Coordinate sparo)
         {
             EffettoSparo effetto = stratega.RiceviColpoFaiRapporto(sparo);
-            if (FleetIsDestroyed())
+            if (effetto == EffettoSparo.Affondato && FleetIsDestroyed())
             {
                 FlottaAffondata?.Invoke(this);
             }
+
             return effetto;
         }
 
         private bool FleetIsDestroyed()
         {
-            //TODO
-            return false;
+            bool flottaAffondata = true;
+
+            foreach ( var nave in fleet)
+            {
+                if (!nave.Affondata())
+                {
+                    flottaAffondata = false;
+                    break;
+                }
+            }
+            return flottaAffondata;
         }
 
         public Coordinate Spara()
