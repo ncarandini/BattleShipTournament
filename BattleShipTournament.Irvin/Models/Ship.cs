@@ -30,6 +30,9 @@ namespace BattleShipTournament.Irvin.Models
                 throw new ArgumentOutOfRangeException();    // se ricevo un risultato minore o maggiore della misura di una qualsiasi nave, genero errore
             }
 
+            // Aggiunto da Nicolò
+            statusNave[partIndex] = StatusParteNave.Damaged;
+
             return Affondata();   // ritorna che la nave è affondata
         }
 

@@ -32,23 +32,31 @@ namespace BattleShipTournament.Mirko.Models
         public bool Colpita (int partIndex)
         {
 
-            if ((partIndex < 0) || (partIndex >= lunghezza)){
+            if ((partIndex < 0) || (partIndex >= lunghezza))
+            {
                 // lancio un'eccezione che comunica che il valore testato esce dal range definito;  potrei inserire un messaggio nelle parentesi ma non c'è bisogno
-                throw new ArgumentOutOfRangeException(); 
+                throw new ArgumentOutOfRangeException();
             }
 
             statusNave[partIndex] = StatusParteNave.Damaged; // marco come colpita la parte della nave identificata da partIndex
+
+            return Affondata();
+        }
+
+        public bool Affondata()
+        {
             bool affondata = true;
 
             // cerco una parte della nave ancora intatta, se trovo una parte intatta, pongo affondata = false e blocco il foreach
             foreach (var statusParteNave in statusNave)
             {
-                if (statusParteNave == StatusParteNave.Good) 
+                if (statusParteNave == StatusParteNave.Good)
                 {
                     affondata = false;
                     break;
                 }
             }
+
             return affondata;
         }
 

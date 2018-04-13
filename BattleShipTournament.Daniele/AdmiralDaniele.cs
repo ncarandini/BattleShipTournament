@@ -47,7 +47,7 @@ namespace BattleShipTournament.Daniele
         {
             EffettoSparo effetto = stratega.RiceviColpoEFaiRapporto(sparo);
 
-            if (FleetIsDestroyed())
+            if (effetto == EffettoSparo.Affondato && FleetIsDestroyed())
             {
                 FlottaAffondata?.Invoke(this);
 
@@ -57,8 +57,19 @@ namespace BattleShipTournament.Daniele
 
         private bool FleetIsDestroyed()
         {
-            //TODO
-            return false;
+            bool flottaAffondata = true;
+
+
+            foreach (var nave in flotta)
+            {
+                if (!nave.Affondata())
+                {
+                    flottaAffondata = false;
+                    break;
+                }
+            }
+            
+            return flottaAffondata;
         }
 
         public Coordinate Spara()
