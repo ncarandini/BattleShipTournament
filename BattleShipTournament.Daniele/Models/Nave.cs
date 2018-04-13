@@ -41,6 +41,13 @@ namespace BattleShipTournament.Daniele.Models
 
             statusNave[partIndex] = StatusParteNave.Damaged;
 
+            bool affondata = Affondata();
+
+            return affondata;
+        }
+
+        public bool Affondata()
+        {
             bool affondata = true;
 
 
@@ -53,14 +60,13 @@ namespace BattleShipTournament.Daniele.Models
                 {
                     //LA NAVE NON E' STATA AFFONDATA 
                     affondata = false;
-                    //BLOCCO DEL CICLO 
+
+                    //ESCI DEL CICLO 
                     break;
                 }
             }
 
             return affondata;
         }
-
-
     }
 }

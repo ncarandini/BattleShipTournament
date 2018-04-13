@@ -57,23 +57,26 @@ namespace BattleshipTournament.ConsoleApp.Models
             attacker = admiralWhite;
             defender = admiralBlack;
 
-            while (!gameEnded && turn <= 100)
+            while (!gameEnded && turn <= 500)
             {
-                logger.Log(this, $"Turn {turn} : Attacker is {attacker.Nome}, defender is {defender.Nome}.");
+                //logger.Log(this, $"Turn {turn} : Attacker is {attacker.Nome}, defender is {defender.Nome}.");
 
-                logger.Log(this, $"Request to attacker {attacker.Nome} to shot...");
+                //logger.Log(this, $"Request to attacker {attacker.Nome} to shot...");
                 Coordinate sparo = attacker.Spara();
-                logger.Log(this, $"Attacker {attacker.Nome} shooted at ({sparo.Riga}, {sparo.Colonna}).");
+                logger.Log(this, $"[{turn}] Attacker {attacker.Nome} shooted at ({sparo.Riga}, {sparo.Colonna}).");
 
-                logger.Log(this, $"Request to defender {defender.Nome} to report shot effects...");
+                // Forza lo sparo in (2,1)
+                // sparo = new Coordinate(2, 1);
+
+                //logger.Log(this, $"Request to defender {defender.Nome} to report shot effects...");
                 EffettoSparo effetto = defender.Rapporto(sparo);
                 logger.Log(this, $"Defender {defender.Nome} reported '{TestoEffetto(effetto)}'.");
 
-                logger.Log(this, $"Report to attacker {attacker.Nome} shot effects...");
+                //logger.Log(this, $"Report to attacker {attacker.Nome} shot effects...");
                 attacker.RiceviRapporto(effetto);
-                logger.Log(this, $"Report to attacker {attacker.Nome} delivered.");
+                //logger.Log(this, $"Report to attacker {attacker.Nome} delivered.");
 
-                logger.Log(this, $"Swap attacker and defender and start new turn.");
+                //logger.Log(this, $"Swap attacker and defender and start new turn.");
                 SwapRoles();
                 turn++;
             }

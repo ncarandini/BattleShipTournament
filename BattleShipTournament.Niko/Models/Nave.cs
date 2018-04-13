@@ -28,14 +28,22 @@ namespace BattleShipTournament.Niko.Models
 
         public bool Colpita (int partIndex)
         {
-            if ( partIndex < 0 || partIndex >= lunghezza)
+            if (partIndex < 0 || partIndex >= lunghezza)
             {
                 throw new ArgumentOutOfRangeException();
             }
 
             statusNave[partIndex] = StatusParteNave.Damaged;
 
+            bool affondata = Affondata();
+
+            return affondata;
+        }
+
+        public bool Affondata()
+        {
             bool affondata = true;
+
             foreach (var statusParteNave in statusNave)
             {
                 if (statusParteNave == StatusParteNave.Good)
@@ -44,6 +52,7 @@ namespace BattleShipTournament.Niko.Models
                     break;
                 }
             }
+
             return affondata;
         }
     }

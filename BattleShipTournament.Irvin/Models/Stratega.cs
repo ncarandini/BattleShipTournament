@@ -15,6 +15,13 @@ namespace BattleShipTournament.Irvin.Models
         {
             // Inizializza mare vuoto
             seaMap = new SeaCell[10, 10];
+            for (int riga = 0; riga < 10; riga++)
+            {
+                for (int colonna = 0; colonna < 10; colonna++)
+                {
+                    seaMap[riga, colonna] = new SeaCell();
+                }
+            }
         }
 
         public void PosizioneNavi(Ship[] fleet)
@@ -56,7 +63,9 @@ namespace BattleShipTournament.Irvin.Models
 
             if(!seaCell.IsEmpty)    //se non (!) è vuoto
             {
-                risultato = EffettoSparo.Acqua;
+                //Errore:
+                //risultato = EffettoSparo.Acqua;
+                risultato = EffettoSparo.Colpito;
 
                 Ship ship = seaCell.Ship;
                 int partIndex = seaCell.PartIndex;

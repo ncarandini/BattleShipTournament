@@ -43,7 +43,7 @@ namespace BattleShipTournament.Irvin
         {
             EffettoSparo effetto = stratega.RiceviColpoFaiRapporto(sparo);
 
-            if(FleetIsDestroyed())
+            if(effetto == EffettoSparo.Affondato && FleetIsDestroyed())
             {
                 FlottaAffondata?.Invoke(this);
             }
@@ -53,7 +53,18 @@ namespace BattleShipTournament.Irvin
 
         private bool FleetIsDestroyed()
         {
-            return false;
+            bool flottaAffondata = true;
+
+            foreach (var ship in fleet)
+            {
+                if (!ship.Affondata())
+                {
+                    flottaAffondata = false;
+                    break;
+                }
+            }
+
+            return flottaAffondata;
         }
 
         public Coordinate Spara()

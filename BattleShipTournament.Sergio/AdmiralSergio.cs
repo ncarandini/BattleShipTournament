@@ -43,7 +43,7 @@ namespace BattleShipTournament.Sergio
         public EffettoSparo Rapporto(Coordinate sparo)
         {
             EffettoSparo effetto = strategyManager.RiceviColpoFaiRapporto(sparo);
-            if(FleetIsDestroyed())
+            if (effetto == EffettoSparo.Affondato && FleetIsDestroyed())
             {
                 FlottaAffondata?.Invoke(this);
             }
@@ -52,8 +52,18 @@ namespace BattleShipTournament.Sergio
 
         private bool FleetIsDestroyed()
         {
-            //TODO
-            return false;
+            bool flottaAffondata = true;
+
+            foreach (var ship in fleet)
+            {
+                if (!ship.Affondata())
+                {
+                    flottaAffondata = false;
+                    break;
+                }
+
+            }
+            return flottaAffondata;
         }
 
         public Coordinate Spara()
