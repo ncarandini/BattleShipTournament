@@ -11,16 +11,24 @@ namespace BattleShipTournament.Sergio.Models
     {
         SeaCell[,] seaMap;
         public StrategyManager()
-        
+
         {
-            
+
             seaMap = new SeaCell[10, 10];
+
+            for (int riga = 0; riga < 10; riga++)
+            {
+                for (int colonna = 0; colonna < 10; colonna++)
+                {
+                    seaMap[riga, colonna] = new SeaCell();
+                }
+            }
 
         }
 
         public void PosizionaNavi(Ship[] fleet)
         {
-            
+
             Ship s1 = fleet[0];
             Ship s2 = fleet[1];
             Ship s3 = fleet[2];

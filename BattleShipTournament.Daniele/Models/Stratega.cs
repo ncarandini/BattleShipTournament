@@ -19,6 +19,14 @@ namespace BattleShipTournament.Daniele.Models
 
             seaMap = new SeaCell[10, 10];
 
+            for (int r = 0; r < 10; r++)
+            {
+                for (int c = 0; c < 10; c++)
+                {
+                    seaMap[r, c] = new SeaCell();
+                }
+            }
+
         }
 
         public void PosiozionaNavi(Nave[]flotta)

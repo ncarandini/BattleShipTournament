@@ -23,22 +23,31 @@ namespace BattleShipTournament.Nabil
             }
 
         }
+
         public bool Colpita(int PartIndex)
         {
-            if(PartIndex < 0 || PartIndex >= lunghezza)
+            if (PartIndex < 0 || PartIndex >= lunghezza)
             {
                 throw new ArgumentOutOfRangeException();
             }
+
             StatusNave[PartIndex] = StatusParteNave.Damaged;
+            return Affondata();
+        }
+
+        public bool Affondata()
+        {
             bool affondata = true;
+
             foreach (var statuspartenave in StatusNave)
             {
-                if( statuspartenave == StatusParteNave.Good)
+                if (statuspartenave == StatusParteNave.Good)
                 {
                     affondata = false;
                     break;
                 }
             }
+
             return affondata;
         }
     }

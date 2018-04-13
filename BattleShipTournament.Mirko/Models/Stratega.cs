@@ -14,8 +14,17 @@ namespace BattleShipTournament.Mirko.Models
         // costruttore della mappa
         public Stratega ()
         {
+            
             // inizializza la mappa chiama il costruttore vuoto di SeaCell il quale si occupa di riempire le celle con il mare
             seaMap = new SeaCell[10, 10];
+
+            for (int riga = 0; riga < 10; riga++)
+            {
+                for (int colonna = 0; colonna < 10; colonna++)
+                {
+                    seaMap[riga, colonna] = new SeaCell();
+                }
+            }
         }
         
         // metodo per il posizionamento delle navi che pongo come publico per far si che possa essere chiamato da AdmiralMirko

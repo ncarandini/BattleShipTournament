@@ -43,6 +43,7 @@
     <Compile Include="Models\Coordinate.cs" />
     <Compile Include="Models\EffettoSparo.cs" />
     <Compile Include="Models\Interfaces\IAdmiral.cs" />
+    <Compile Include="Models\SingleRandom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
