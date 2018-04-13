@@ -1,4 +1,5 @@
 ﻿using BattleshipTournament.Core.Models;
+using BattleShipTournament.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace BattleShipTournament.Mirko.Models
     public class Tattico
     {
         bool[,] tacticalSeaMap;
+        Random randomGenerator = SingleRandom.Current;
 
         // costruttore della classe
         public Tattico()
@@ -56,13 +58,12 @@ namespace BattleShipTournament.Mirko.Models
             int colonna = 0;
 
             // trova una zona a caso che non è stata ancora colpita, provandoci al massimo 10 volte
-            Random random = new Random();
             int tentativi = 0;
             while (!sparoTrovato && tentativi < 9)
             {
                 tentativi++;
-                riga = random.Next(0, 9);
-                colonna = random.Next(0, 9);
+                riga = randomGenerator.Next(0, 9);
+                colonna = randomGenerator.Next(0, 9);
 
                 if (!tacticalSeaMap[riga, colonna])
                 {
