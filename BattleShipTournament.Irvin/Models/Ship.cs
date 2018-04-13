@@ -30,8 +30,11 @@ namespace BattleShipTournament.Irvin.Models
                 throw new ArgumentOutOfRangeException();    // se ricevo un risultato minore o maggiore della misura di una qualsiasi nave, genero errore
             }
 
-            statusNave[partIndex] = StatusParteNave.Damaged;
+            return Affondata();   // ritorna che la nave è affondata
+        }
 
+        public bool Affondata()
+        {
             bool affondata = true;
 
             foreach (var p in statusNave)   //cicla per ogni p in statusNave
@@ -43,7 +46,7 @@ namespace BattleShipTournament.Irvin.Models
                 }
             }
 
-            return affondata;   // ritorna che la nave è affondata
+            return affondata;
         }
     }
 }
