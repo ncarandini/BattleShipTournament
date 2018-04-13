@@ -231,21 +231,46 @@ namespace BattleShipTournament.Andrea
 
         public EffettoSparo Rapporto(Coordinate sparo)
         {
-            CoordinataXY coordinataSparo = new CoordinataXY(sparo.Riga, sparo.Colonna);
+            CoordinataXY coordinataSparoRicevuta = new CoordinataXY(sparo.Riga, sparo.Colonna);
 
             for(int i=0; i<flotta.Length;i++)
             {
                 for (int j=0;j<flotta[i].ParteNave.Length;j++)
                 {
-                    if(!flotta[i].ParteNave[j].Distrutta)
+                    if(flotta[i].ParteNave[j].GetCoordinata().Equals(coordinataSparoRicevuta))
                     {
-                        flotta[i].ParteNave[j].Distrutta = true;
-                        return EffettoSparo.Colpito;
+                        int partiNaveDistrutte = 0;
+                        for(int k=0;k<flotta[i].ParteNave.Length;k++)
+                        {
+                            if(flotta[i].ParteNave[k].Distrutta)
+                            {
+                                partiNaveDistrutte++;
+                            }
+                        }
+                        if(partiNaveDistrutte== flotta[i].ParteNave.Length)
+                        {
+                            flotta[i].ParteNave[j].Distrutta = true;
+                            return EffettoSparo.Affondato;
+                        }
+                        else
+                        {
+                            flotta[i].ParteNave[j].Distrutta = true;
+                            return EffettoSparo.Colpito;
+                        }
+
                     }
                 }
             }
             return EffettoSparo.Acqua;
         }
+        
+
+        private bool ControllaFlottaAffondata()        // da implementare
+        {
+            return false;
+        }
+
+        
 
 
         public Coordinate Spara()
