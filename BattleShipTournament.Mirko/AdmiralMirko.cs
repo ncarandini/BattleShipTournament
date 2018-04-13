@@ -62,7 +62,7 @@ namespace BattleShipTournament.Mirko
 
             foreach (var nave in flotta)
             {
-                if (!nave.affondata())
+                if (!nave.Affondata())
                 {
                     flottaAffondata = false;
                     break;
