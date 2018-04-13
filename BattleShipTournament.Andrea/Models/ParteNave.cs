@@ -10,11 +10,13 @@ namespace BattleShipTournament.Andrea.Models
     public class ParteNave
     {
         CoordinataXY coordinata;
+        
 
         public bool Distrutta { get; set; }
 
         public ParteNave()
         {
+            
         }
 
         public void SetCoordinata(int riga, int colonna)

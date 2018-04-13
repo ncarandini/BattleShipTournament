@@ -41,7 +41,7 @@ namespace BattleShipTournament.Andrea
             mappaGiocatore = new Mappa(DIMENSIONEMAPPA);
             mappaAvversario = new Mappa(DIMENSIONEMAPPA);
 
-            PosizionaFlotta(); //?? da inserire nel costruttore o no??
+            //PosizionaFlotta(); //?? da inserire nel costruttore o no??
         }
 
         public void PosizionaFlotta()  // posizionamento random della flotta.
@@ -55,8 +55,9 @@ namespace BattleShipTournament.Andrea
 
             for (int i=0;i<flotta.Length;)  // ciclo for su tutte le navi
             {
+                
                 RandomPosizioneEDirezione(flotta[i]);  //riempie direzione, posizionamentoRiga, posizionamentoColonna
-
+                
                 ControlloPostoLibero(flotta[i]);
 
                 if(postoLibero)
@@ -67,7 +68,7 @@ namespace BattleShipTournament.Andrea
                         {
                             flotta[i].ParteNave[j].SetCoordinata(posizionamentoRiga, posizionamentoColonna+ j); //inserisce coordinate nave nell'array di navi chiamato flotta.
 
-                            mappaGiocatore.SetCasellaPiena(new CoordinataXY(posizionamentoRiga, posizionamentoColonna + j)); //riempie la mappa giocatore
+                            mappaGiocatore.SetCasellaPiena(new CoordinataXY(posizionamentoRiga, posizionamentoColonna )); //riempie la mappa giocatore
 
                             casellaUsata[controlloRiga, controlloColonna + j] = true; //riempie array provvisiorio per controllare se successivamente posso inserire le navi.
                             casellaUsata[controlloRiga+1, controlloColonna + j -1] = true;
@@ -106,13 +107,15 @@ namespace BattleShipTournament.Andrea
         private void RandomPosizioneEDirezione(Nave nave) // crea numeri random per posizione e direzione
         {
             //Random r = new Random();
-            direzione = randomGenerator.Next(0, 1);    //0= barca da posizionare il orizzontale, 1= verticale
+            direzione = randomGenerator.Next(0, 2);    //0= barca da posizionare il orizzontale, 1= verticale
 
+            
 
             if (direzione == 0)  //uso di random per selezionare le coordinate in base alla direzione e alla lunghezza della nave
             {
                 posizionamentoRiga = randomGenerator.Next(0, DIMENSIONEMAPPA  - nave.Lunghezza);
                 posizionamentoColonna = randomGenerator.Next(0, DIMENSIONEMAPPA );
+
                 controlloRiga = posizionamentoRiga + 1;
                 controlloColonna = posizionamentoColonna + 1;
             }
@@ -125,17 +128,19 @@ namespace BattleShipTournament.Andrea
 
         private void ControlloPostoLibero(Nave nave) // controlla se la nave può essere posizionata
         {
-            
             if (casellaUsata[controlloRiga, controlloColonna] == false)  //Controlla se la casella è già stata usata
             {
-                for (int i = 0; i < nave.Lunghezza - 1; i++)
+                for (int i = 0; i < flotta.Length - 1; i++)
                 {
                     if (casellaUsata[controlloRiga, controlloColonna] == false)  // controllo inutile?? forse da togliere
                     {
+                        
                         if (direzione == 0) //direzione orizzontale
                         {
+                            
                             if (i == 0) //controllo sulla prima parte della barca da posizionare il orizzontale
                             {
+                                
                                 if (casellaUsata[controlloRiga, controlloColonna - 1] == false &&
                                     casellaUsata[controlloRiga - 1, controlloColonna] == false &&
                                     casellaUsata[controlloRiga - 1, controlloColonna - 1] == false &&
@@ -318,7 +323,7 @@ namespace BattleShipTournament.Andrea
 
         public void RiceviRapporto(EffettoSparo effettoSparo)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
     
