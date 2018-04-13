@@ -18,6 +18,13 @@ namespace BattleShipTournament.Niko.Models
         {
             // inizializza mare vuoto 
             seaMap = new SeaCell[10, 10];
+            for (int riga = 0; riga < 10; riga++)
+            {
+                for (int colonna = 0; colonna < 10; colonna++)
+                {
+                    seaMap[riga, colonna] = new SeaCell();
+                }
+            }
         }
 
         public void PosizionaNavi(Nave[] flotta)

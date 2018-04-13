@@ -2,6 +2,7 @@
 using BattleshipTournament.Core.Models;
 using BattleShipTournament.Irvin;
 using BattleShipTournament.Nick;
+using BattleShipTournament.Walter;
 using System;
 using System.Collections.Generic;
 using System.Linq;

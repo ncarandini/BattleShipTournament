@@ -43,7 +43,7 @@ namespace BattleShipTournament.Niko
         {
             EffettoSparo effetto = strategyManager.RiceviColpoEFaiRapporto(sparo);
 
-            if(FleetIsDestroyed())
+            if(effetto == EffettoSparo.Affondato && FleetIsDestroyed())
             {
                 if (FlottaAffondata != null)
                 {
@@ -52,12 +52,20 @@ namespace BattleShipTournament.Niko
             }
 
             return effetto;
-
         }
 
         private bool FleetIsDestroyed()
         {
-            // TODO
+            bool flottaAffondata = true;
+
+            foreach (var nave in flotta)
+            {
+                if(!nave.Affondata())
+                {
+                    flottaAffondata = false;
+                    break;
+                }
+            }
             return false;
         }
 
