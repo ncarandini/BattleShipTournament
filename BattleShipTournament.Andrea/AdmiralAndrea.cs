@@ -1,5 +1,6 @@
 ﻿using BattleshipTournament.Core.Models;
 using BattleShipTournament.Andrea.Models;
+using BattleShipTournament.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace BattleShipTournament.Andrea
 
         private Mappa mappaGiocatore;
         private Mappa mappaAvversario;
+
+        Random randomGenerator = SingleRandom.Current;
         
 
         int posizionamentoRiga;
@@ -102,21 +105,21 @@ namespace BattleShipTournament.Andrea
 
         private void RandomPosizioneEDirezione(Nave nave) // crea numeri random per posizione e direzione
         {
-            Random r = new Random();
-            direzione = r.Next(0, 1);    //0= barca da posizionare il orizzontale, 1= verticale
+            //Random r = new Random();
+            direzione = randomGenerator.Next(0, 1);    //0= barca da posizionare il orizzontale, 1= verticale
 
 
             if (direzione == 0)  //uso di random per selezionare le coordinate in base alla direzione e alla lunghezza della nave
             {
-                posizionamentoRiga = r.Next(0, DIMENSIONEMAPPA  - nave.Lunghezza);
-                posizionamentoColonna = r.Next(0, DIMENSIONEMAPPA );
+                posizionamentoRiga = randomGenerator.Next(0, DIMENSIONEMAPPA  - nave.Lunghezza);
+                posizionamentoColonna = randomGenerator.Next(0, DIMENSIONEMAPPA );
                 controlloRiga = posizionamentoRiga + 1;
                 controlloColonna = posizionamentoColonna + 1;
             }
             else
             {
-                posizionamentoRiga = r.Next(0, DIMENSIONEMAPPA);
-                posizionamentoColonna = r.Next(0, DIMENSIONEMAPPA - nave.Lunghezza);
+                posizionamentoRiga = randomGenerator.Next(0, DIMENSIONEMAPPA);
+                posizionamentoColonna = randomGenerator.Next(0, DIMENSIONEMAPPA - nave.Lunghezza);
             }
         }  
 

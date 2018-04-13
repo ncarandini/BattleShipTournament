@@ -1,4 +1,5 @@
 ﻿using BattleshipTournament.Core.Models;
+using BattleShipTournament.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace BattleShipTournament.Emanuel.Models
     {
 
         bool[,] tacticalSeaMap;
+        Random randomGenerator = SingleRandom.Current;
 
         public Tattico()
         {
@@ -59,13 +61,13 @@ namespace BattleShipTournament.Emanuel.Models
 
             // Trova una zona a caso che ancora non è stata colpita
             // provandoci per al massimo dieci volte
-            Random random = new Random();
+           
 
             while (!sparoTrovato && tentativi < 10)
             {
                 tentativi++;
-                riga = random.Next(0, 9);
-                colonna = random.Next(0, 9);
+                riga = randomGenerator.Next(0, 9);
+                colonna = randomGenerator.Next(0, 9);
 
                 if (!tacticalSeaMap[riga, colonna])
                 {
