@@ -1,4 +1,5 @@
 ﻿using BattleshipTournament.Core.Models;
+using BattleShipTournament.Core.Models;
 using BattleShipTournament.Walter.Models;
 using System;
 using System.Collections.Generic;
@@ -52,7 +53,8 @@ namespace BattleShipTournament.Walter
             while(indice<laMiaFlotta.Count)
             {
                 //genero random il verso della nave
-                Random rand = new Random();
+                //Random rand = new Random();
+                Random rand = SingleRandom.Current;
                 bool versoNave = rand.Next() % 2 == 0;
 
                 //genero random la posizione iniziale della nave
