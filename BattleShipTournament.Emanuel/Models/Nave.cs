@@ -24,15 +24,22 @@ namespace BattleShipTournament.Emanuel.Models
 
         }
 
-        public bool Colpita(int partIndex) {
+        public bool Colpita(int partIndex)
+        {
 
             if (partIndex < 0 || partIndex >= lenght)
             {
                 throw new ArgumentOutOfRangeException();
             }
 
-            statusNave[partIndex] = StatusParteNave.Damaged;
+            //  statusNave[partIndex] = StatusParteNave.Damaged;
 
+            return Affondata();
+            
+        }
+
+        public bool Affondata()
+        {
             bool affondata = true;
             foreach (var parteNave in statusNave)
             {
@@ -42,16 +49,14 @@ namespace BattleShipTournament.Emanuel.Models
                     affondata = false;
                     break;
                 }
-                
+
             }
+
             return affondata;
-
-
         }
 
-        
-       
-        
-        
+
+
+
     }
 }

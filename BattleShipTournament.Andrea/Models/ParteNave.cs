@@ -22,6 +22,10 @@ namespace BattleShipTournament.Andrea.Models
         {
             coordinata = new CoordinataXY(riga, colonna);
         }
+        public CoordinataXY GetCoordinata()
+        {
+            return coordinata;
+        }
 
         public void Colpito()
         {
