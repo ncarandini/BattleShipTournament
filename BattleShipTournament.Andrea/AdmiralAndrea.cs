@@ -231,12 +231,18 @@ namespace BattleShipTournament.Andrea
 
         public EffettoSparo Rapporto(Coordinate sparo)
         {
-            if (mappaGiocatore.getCasella(new CoordinataXY(sparo.Riga,sparo.Colonna)).Piena)
-            {
-                int numeroNaveInCasella = mappaGiocatore.getCasella(new CoordinataXY(sparo.Riga, sparo.Colonna)).NumeroNaveInCasella;
-                
-                
+            CoordinataXY coordinataSparo = new CoordinataXY(sparo.Riga, sparo.Colonna);
 
+            for(int i=0; i<flotta.Length;i++)
+            {
+                for (int j=0;j<flotta[i].ParteNave.Length;j++)
+                {
+                    if(!flotta[i].ParteNave[j].Distrutta)
+                    {
+                        flotta[i].ParteNave[j].Distrutta = true;
+                        return EffettoSparo.Colpito;
+                    }
+                }
             }
             return EffettoSparo.Acqua;
         }
