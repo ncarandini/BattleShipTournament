@@ -48,7 +48,7 @@ namespace BattleShipTournament.Mirko
             // chiedo il rapporto, inviando le coordinate dello sparo
             EffettoSparo effetto = stratega.RiceviColpoFaiRapporto(sparo);
 
-            if (FleetIsDestroyed())
+            if (effetto == EffettoSparo.Affondato && FleetIsDestroyed())
             {
                 FlottaAffondata?.Invoke(this); // scatena l'evento FlottaAffondata
             }
@@ -58,8 +58,18 @@ namespace BattleShipTournament.Mirko
 
         private bool FleetIsDestroyed()
         {
-            // TODO
-            return false;
+            bool flottaAffondata = true;
+
+            foreach (var nave in flotta)
+            {
+                if (!nave.affondata())
+                {
+                    flottaAffondata = false;
+                    break;
+                }
+            }
+
+            return flottaAffondata;
         }
 
         public Coordinate Spara()
