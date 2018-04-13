@@ -15,6 +15,14 @@ namespace BattleShipTournament.Irvin.Models
         {
             // Inizializza mare vuoto
             seaMap = new SeaCell[10, 10];
+
+            for (int r = 0; r < 10; r++)
+            {
+                for (int c = 0; c < 10; c++)
+                {
+                    seaMap[r, c] = new SeaCell();
+                }
+            }
         }
 
         public void PosizioneNavi(Ship[] fleet)
