@@ -1,4 +1,5 @@
 ﻿using BattleshipTournament.Core.Models;
+using BattleShipTournament.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace BattleShipTournament.Nabil.Models
     {
 
         bool[,] tacticalSeaMap;
+        Random randomGenerator = SingleRandom.Current;
         public Tattico()
         {
             tacticalSeaMap = new bool[10, 10];
@@ -50,14 +52,16 @@ namespace BattleShipTournament.Nabil.Models
             bool sparoTrovato = false;
             int riga;
             int colonna;
-            Random random = new Random();
+            
+
+
             int tentativi = 0;
 
             while (!sparoTrovato && tentativi < 10)
             {
                 tentativi++;
-                riga = random.Next(0, 9);
-                colonna = random.Next(0, 9);
+                riga = randomGenerator.Next(0, 9);
+                colonna = randomGenerator.Next(0, 9);
 
                 if(!tacticalSeaMap[riga, colonna])
                 {
