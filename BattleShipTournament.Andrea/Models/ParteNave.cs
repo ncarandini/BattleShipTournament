@@ -16,7 +16,7 @@ namespace BattleShipTournament.Andrea.Models
 
         public ParteNave()
         {
-            
+            coordinata = new CoordinataXY();
         }
 
         public void SetCoordinata(int riga, int colonna)

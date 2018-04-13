@@ -27,6 +27,11 @@ namespace BattleShipTournament.Andrea.Models
                 Nome = NomeNave(lunghezza);
                 ParteNave = new ParteNave[lunghezza];
 
+                for(int i=0;i<lunghezza;i++)
+                {
+                    ParteNave[i] = new ParteNave();
+                }
+
             }
         }
 
