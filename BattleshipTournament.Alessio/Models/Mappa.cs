@@ -11,12 +11,10 @@ namespace BattleshipTournament.Alessio.Models
     {
         private List<Nave> navi;
         private string [,] mappa;
-        private AdmiralAlessio admiral;
 
         public Mappa()
         {
             mappa = new string[10, 10];
-            admiral = new AdmiralAlessio();
         }
 
         /// <summary>

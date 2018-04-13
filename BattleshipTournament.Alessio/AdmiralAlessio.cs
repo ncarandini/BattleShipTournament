@@ -9,6 +9,18 @@ namespace BattleshipTournament.Alessio
     {
         public string Nome => "Alessio";
         private Mappa map;
+        private static AdmiralAlessio current;
+
+        public static AdmiralAlessio Current
+        {
+            get
+            {
+                if (current == null)
+                    current = new AdmiralAlessio();
+
+                return current;
+            }
+        }
         //private List<string> rapportiSpari;
 
 
