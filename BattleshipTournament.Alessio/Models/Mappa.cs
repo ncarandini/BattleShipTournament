@@ -11,12 +11,10 @@ namespace BattleshipTournament.Alessio.Models
     {
         private List<Nave> navi;
         private string [,] mappa;
-        private AdmiralAlessio admiral;
 
         public Mappa()
         {
             mappa = new string[10, 10];
-            admiral = new AdmiralAlessio();
         }
 
         /// <summary>
@@ -77,7 +75,7 @@ namespace BattleshipTournament.Alessio.Models
                     }
 
                     int posPrima = arrayPosizionamento[0] - 1;
-                    int posDopo = arrayPosizionamento[nave.Length] + 1;
+                    int posDopo = arrayPosizionamento[nave.Length-1] + 1;
 
                     if (posPrima > 0 && mappa[posPrima, coordinate.Colonna] == string.Empty)
                     {

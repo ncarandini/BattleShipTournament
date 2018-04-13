@@ -9,6 +9,18 @@ namespace BattleshipTournament.Alessio
     {
         public string Nome => "Alessio";
         private Mappa map;
+        private static AdmiralAlessio current;
+
+        public static AdmiralAlessio Current
+        {
+            get
+            {
+                if (current == null)
+                    current = new AdmiralAlessio();
+
+                return current;
+            }
+        }
         //private List<string> rapportiSpari;
 
 
@@ -33,11 +45,11 @@ namespace BattleshipTournament.Alessio
 
             List<Coordinate> coordinatePosizionamento = new List<Coordinate>
             {
-                new Coordinate(0, 3),
-                new Coordinate(4, 6),
-                new Coordinate(8, 2),
-                new Coordinate(5, 1),
-                new Coordinate(7, 6),
+                new Coordinate(GetRandomNumber(), GetRandomNumber()),
+                new Coordinate(GetRandomNumber(), GetRandomNumber()),
+                new Coordinate(GetRandomNumber(), GetRandomNumber()),
+                new Coordinate(GetRandomNumber(), GetRandomNumber()),
+                new Coordinate(GetRandomNumber(), GetRandomNumber()),
             };
 
             listaNavi.ForEach(x =>
@@ -46,7 +58,7 @@ namespace BattleshipTournament.Alessio
                 {
                     if (!map.PosizionaNave(x, y, GetRandomPosizionamento()))
                     {
-                        throw new PosizionamentoException("Errore nel posizionamento di una nave... Riprova");
+                        throw new Exception("Errore nel posizionamento di una nave... Riprova");
                     }
                 });
             });
@@ -70,6 +82,7 @@ namespace BattleshipTournament.Alessio
         {
             Console.WriteLine($"Risultato sparo = {GetRisultatoSparo(effettoSparo)}");
         }
+
 
         private char GetRandomPosizionamento()
         {
@@ -95,6 +108,14 @@ namespace BattleshipTournament.Alessio
                     break;
             }
             return risultato;
+        }
+
+        private int GetRandomNumber()
+        {
+            int number;
+            Random random = new Random();
+            number = random.Next(0, 9);
+            return number;
         }
     }
 }
