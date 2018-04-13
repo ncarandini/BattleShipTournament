@@ -1,4 +1,5 @@
 ﻿using BattleshipTournament.Core.Models;
+using BattleShipTournament.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,8 @@ namespace BattleShipTournament.Walter.Models
     {
         public static Coordinate generaCoordinata()
         {
-            Random rand = new Random();
+            //Random rand = new Random();
+            Random rand = SingleRandom.Current;
             int i = rand.Next(0, 10);
             int j = rand.Next(0, 10);
             return new Coordinate(i, j);
